@@ -29,6 +29,20 @@
         <action>ActivateWindow(TVChannels)</action>
         <visible>PVR.HasTVChannels</visible>
     </shortcut>
+	<shortcut>
+		<defaultID>games</defaultID>
+		<label>15016</label>
+		<label2>Common Shortcut</label2>
+		<icon>special://skin/extras/icons/games.png</icon>
+		<action>ActivateWindow(games,return)</action>
+	</shortcut>
+		<shortcut>
+		<defaultID>pictures</defaultID>
+		<label>1</label>
+        <label2>Common Shortcut</label2>
+		<icon>special://skin/extras/icons/pictures.png</icon>
+		<action>ActivateWindow(pictures,return)</action>
+	</shortcut>
     <shortcut>
         <label>24001</label>
         <label2/>

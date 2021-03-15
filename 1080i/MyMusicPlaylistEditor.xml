@@ -2,7 +2,7 @@
 <!-- Foundation -->
 <window>
     <defaultcontrol allways="true">50</defaultcontrol>
-
+    <views>50</views>
 
     <controls>
 

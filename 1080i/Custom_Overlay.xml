@@ -122,6 +122,17 @@
                 <shadowcolor>FF000000</shadowcolor>
                 <font>font13</font>
                 <align>left</align>
+                <label>MyGames.xml</label>
+                <visible>Window.IsVisible(MyGames.xml)</visible>
+            </control>
+
+            <control type="label">
+                <width>780</width>
+                <height>21</height>
+                <textcolor>FF0000FF</textcolor>
+                <shadowcolor>FF000000</shadowcolor>
+                <font>font13</font>
+                <align>left</align>
                 <label>MyPrograms.xml</label>
                 <visible>Window.IsVisible(MyPrograms.xml)</visible>
             </control>

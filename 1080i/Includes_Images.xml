@@ -184,6 +184,7 @@
         <value condition="Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml)">special://skin/extras/icons/livetv.png</value>
         <value condition="Window.IsVisible(MyMusicPlaylistEditor.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyMusicSongs.xml)">special://skin/extras/icons/songs.png</value>
         <value condition="Window.IsVisible(MyPics.xml)">special://skin/extras/icons/pictures.png</value>
+		<value condition="Window.IsVisible(MyGames.xml)">special://skin/extras/icons/games/png</value>
         <value condition="Window.IsVisible(MyPrograms.xml) | Window.IsVisible(AddonBrowser.xml)">special://skin/extras/icons/addons.png</value>
         <value condition="Window.IsVisible(weather)">special://skin/extras/icons/sun.png</value>
         <value condition="Window.IsVisible(SettingsSystemInfo.xml) | Window.IsVisible(SettingsCategory.xml) | Window.IsVisible(settings) | Window.IsVisible(SkinSettings.xml)">special://skin/extras/icons/settings.png</value>

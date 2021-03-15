@@ -11,6 +11,7 @@
         <onload condition="Window.IsActive(systeminfo)">SetProperty(MenuIconFocus,ReplaceWindow(systeminfo),Home)</onload>
         <onload condition="Window.IsActive(profiles)">SetProperty(MenuIconFocus,ReplaceWindow(profiles),Home)</onload>
         <onload condition="Window.IsActive(skinsettings)">SetProperty(MenuIconFocus,ReplaceWindow(skinsettings),Home)</onload>
+		<onload condition="Window.IsActive(gamesettings)">SetProperty(MenuIconFocus,ReplaceWindow(gamesettings),Home)</onload>
     </include>
 
     <include name="Defs_Settings_OnLeft">
@@ -23,6 +24,7 @@
         <onleft condition="Window.IsVisible(pvrsettings)">SetFocus(300,6)</onleft>
         <onleft condition="Window.IsVisible(systeminfo)">SetFocus(300,7)</onleft>
         <onleft condition="Window.IsVisible(profiles)">SetFocus(300,8)</onleft>
+		<onleft condition="Window.IsVisible(gamesettings)">SetFocus(300,11)</onleft>
     </include>
 
     <include name="Defs_SkinShortcuts_SetStrings">

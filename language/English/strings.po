@@ -412,7 +412,7 @@ msgstr ""
 
 #: /1080i/SkinSettings.xml
 msgctxt "#31080"
-msgid "Artwork button downloads all available artwork (as specified in artwork downloader settings)"
+msgid "Artwork button downloads all available artwork (as specified in artwork beef settings)"
 msgstr ""
 
 #: /1080i/SkinSettings.xml

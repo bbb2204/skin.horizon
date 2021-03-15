@@ -220,6 +220,7 @@
         <value condition="Window.IsVisible(MyVideoNav.xml)">$LOCALIZE[3]</value>
         <value condition="Window.IsVisible(MyMusicNav.xml)">$LOCALIZE[2]</value>
         <value condition="Window.IsVisible(MyPics.xml)">$LOCALIZE[1]</value>
+		<value condition="Window.IsVisible(MyGames.xml)">$LOCALIZE[15016]</value>
         <value condition="Window.IsVisible(MyPrograms.xml)">$LOCALIZE[0]</value>
         <value condition="Window.IsVisible(AddonBrowser.xml)">$LOCALIZE[24001]</value>
         <value condition="Window.IsVisible(Home.xml) + !String.IsEmpty(Skin.String(Home.Header))">$INFO[Skin.String(Home.Header)]</value>
@@ -282,6 +283,7 @@
         <value condition="Window.IsActive(interfacesettings)">$LOCALIZE[14206]</value>
         <value condition="Window.IsActive(mediasettings)">$LOCALIZE[14211]</value>
         <value condition="Window.IsActive(playersettings)">$LOCALIZE[14200]</value>
+		<value condition="Window.IsActive(gamesettings)">$LOCALIZE[15016]</value>
         <value>$LOCALIZE[480]</value>
     </variable>
 

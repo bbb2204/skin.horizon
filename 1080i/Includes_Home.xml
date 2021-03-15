@@ -61,26 +61,26 @@
                     <include>Home_Iconbar_Logo</include>
                     <control type="list" id="300">
                         <include>Defs_InfoDialog_Visible</include>
-                        <include condition="![Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPlaylist.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml)]">Home_OnClick</include>
+                        <include condition="![Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPlaylist.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyGames.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml)]">Home_OnClick</include>
                         <include>Home_OnFocus</include>
                         <onleft condition="Window.IsVisible(Home) + [!Skin.HasSetting(DisableSubMenu) | String.IsEqual(Container(300).ListItem.Property(widget),Weather)] + !Window.IsVisible(script-globalsearch-main.xml)">302</onleft>
-                        <onleft condition="[Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml)] + !Window.IsVisible(script-globalsearch-main.xml)">9602</onleft>
+                        <onleft condition="[Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyGames.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml)] + !Window.IsVisible(script-globalsearch-main.xml)">9602</onleft>
                         <onright condition="Window.IsVisible(script-globalsearch-main.xml)">9500</onright>
                         <onright condition="Window.IsVisible(Home)">3000</onright>
                         <onright condition="Window.IsVisible(SettingsProfile.xml)">4</onright>
                         <onright condition="Window.IsVisible(SettingsCategory.xml)">3</onright>
                         <onright condition="Window.IsVisible(SkinSettings.xml)">9100</onright>
                         <onright condition="Window.IsVisible(SettingsSystemInfo.xml)">50</onright>
-                        <onright condition="[Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPlaylist.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml)]">50</onright>
+                        <onright condition="[Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPlaylist.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyGames.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml)]">50</onright>
                         <onright condition="Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml)">9500</onright>
 
                         
 
-                        <include condition="![Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPlaylist.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml)]">Home_MainMenu_Layout</include>
-                        <include condition="[Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPlaylist.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml)]">Home_VideoInfo_Layout</include>
+                        <include condition="![Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPlaylist.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyGames.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml)]">Home_MainMenu_Layout</include>
+                        <include condition="[Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPlaylist.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyGames.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml)]">Home_VideoInfo_Layout</include>
 
                         <include condition="Window.IsVisible(Home) + !Window.IsVisible(script-globalsearch-main.xml)">Home_MainMenu_Items</include>
-                        <include condition="[Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml)] + !Window.IsVisible(script-globalsearch-main.xml)">Home_MainMenu_OptionsItems</include>
+                        <include condition="[Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyGanes.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml)] + !Window.IsVisible(script-globalsearch-main.xml)">Home_MainMenu_OptionsItems</include>
                         <include condition="Window.IsVisible(MyPlaylist.xml) + !Window.IsVisible(script-globalsearch-main.xml)">Home_MainMenu_PlaylistItems</include>
                         <include condition="[Window.IsVisible(SettingsSystemInfo.xml) | Window.IsVisible(Settings.xml) | Window.IsVisible(SettingsCategory.xml) | Window.IsVisible(SkinSettings.xml) | Window.IsVisible(SettingsProfile.xml)] + !Window.IsVisible(script-globalsearch-main.xml)">Home_MainMenu_SettingsItems</include>
                         <include condition="[Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml)] + !Window.IsVisible(script-globalsearch-main.xml)">Home_MainMenu_NextAired</include>
@@ -186,6 +186,13 @@
                 <property name="path">ActivateWindow(filemanager)</property>
                 <property name="altpath">ActivateWindow(filemanager)</property>
             </item>
+            <item id="12">
+                <label>15016</label>
+                <icon>special://skin/extras/icons/games.png</icon>
+                <onclick>ReplaceWindow(gamesettings)</onclick>
+                <property name="path">ReplaceWindow(gamesettings)</property>
+                <property name="altpath">ActivateWindow(gamesettings)</property>
+            </item>			
             <item id="13">
                 <label>$INFO[Control.GetLabel(20)]</label>
                 <icon>special://skin/extras/icons/settings.png</icon>
@@ -501,6 +508,13 @@
                 <visible>Control.IsEnabled(9)</visible>
                 <visible>!Skin.HasSetting(global.kioskmode)</visible>
             </item>
+			<!-- Dependencies -->
+            <item>
+                <label>$INFO[Control.GetLabel(10)]</label>
+                <icon>special://skin/extras/icons/info.png</icon>
+                <onclick>SendClick(10)</onclick>
+                <visible>Control.IsEnabled(10)</visible>
+            </item>			
             <!-- Auto Update -->
             <item>
                 <label>$INFO[Control.GetLabel(13)]</label>
@@ -567,7 +581,7 @@
                 <include>Home_View_LockUnlock</include>
                 <onclick>Container.NextViewMode</onclick>
                 <visible>Control.IsEnabled(2)</visible>
-                <visible>Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyPrograms.xml)</visible>
+                <visible>Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyGames.xml) | Window.IsVisible(MyPrograms.xml)</visible>
                 <visible>!Skin.HasSetting(global.kioskmode)</visible>
             </item>
             <!-- Lock viewmode -->
@@ -600,7 +614,7 @@
                 <onclick condition="[Container.Content(games) + String.IsEmpty(Skin.String(Skin.ForcedView.games))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
                 <onclick condition="[Container.Content(unknown) + String.IsEmpty(Skin.String(Skin.ForcedView.unknown))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
                 <onclick condition="[Container.Content(videos) + String.IsEmpty(Skin.String(Skin.ForcedView.videos))]">AlarmClock(setviewlock,Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode]),00:01,silent)</onclick>
-                <visible>Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyPrograms.xml)</visible>
+                <visible>Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyGames.xml) | Window.IsVisible(MyPrograms.xml)</visible>
                 <visible>!Skin.HasSetting(global.kioskmode)</visible>
             </item>
             <!-- Sort -->
@@ -937,11 +951,15 @@
                     <visible>Integer.IsGreater(Container(302).NumItems,0)</visible>
                 </control>
             </control>
-            <include content="Home_Textbar_Item_Label" condition="![Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPlaylist.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml) | Window.IsVisible(DialogAddonInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)]">
+            <include content="Home_Textbar_Item_Label" condition="![Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPlaylist.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | 
+			Window.IsVisible(MyGames.xml) | 
+			Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml) | Window.IsVisible(DialogAddonInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)]">
                 <param name="id" value="$PARAM[id]" />
                 <param name="font" value="font_mainmenu" />
             </include>
-            <include content="Home_Textbar_Item_Label" condition="[Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPlaylist.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml) | Window.IsVisible(DialogAddonInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)]">
+            <include content="Home_Textbar_Item_Label" condition="[Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPlaylist.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | 
+			Window.IsVisible(MyGames.xml) | 
+			Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml) | Window.IsVisible(DialogAddonInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)]">
                 <param name="id" value="$PARAM[id]" />
                 <param name="font" value="font_submenu" />
             </include>
