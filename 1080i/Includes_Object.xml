@@ -515,11 +515,11 @@
                         <control type="image">
                             <aspectratio aligny="center">scale</aspectratio>
                             <texture background="true" fallback="DefaultAddonImages.png">$PARAM[variable]</texture>
-                            <visible>[!$PARAM[container]ListItem.IsParentFolder + !String.StartsWith($PARAM[container]ListItem.Icon,Default) + [!String.IsEmpty($PARAM[container]ListItem.Art(tvshow.poster)) | !String.IsEmpty($PARAM[container]ListItem.Art(poster)) | !String.IsEmpty($PARAM[container]ListItem.Art(season.poster))]]</visible>
+                            <visible>[!ListItem.IsParentFolder + [!String.IsEmpty(ListItem.Art(tvshow.poster)) | !String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(ListItem.Art(season.poster))]]</visible>
                         </control>
                         
                         <control type="group">
-                            <visible>[[!$PARAM[container]ListItem.IsParentFolder + !String.StartsWith($PARAM[container]ListItem.Icon,Default)] + ![!String.IsEmpty($PARAM[container]ListItem.Art(tvshow.poster)) | !String.IsEmpty($PARAM[container]ListItem.Art(poster)) | !String.IsEmpty($PARAM[container]ListItem.Art(season.poster))]]</visible>
+                            <visible>[!ListItem.IsParentFolder + ![Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]]</visible>
         
                             <control type="image">
                                 <aspectratio aligny="center">$PARAM[aspect]</aspectratio>
@@ -529,17 +529,17 @@
                     </control>
 
                     <control type="group">
-                        <visible>$PARAM[container]ListItem.IsParentFolder | String.StartsWith($PARAM[container]ListItem.Icon,Default)</visible>
+                        <visible>ListItem.IsParentFolder | [Container.Content(genres) | Container.Content(studios) | Container.Content(countries) | Container.Content(years) | Container.Content(directors)]</visible>
   
                         <control type="image">
-                            <aspectratio aligny="center">center</aspectratio>
-                            <texture background="true"  colordiffuse="main_fg_100" fallback="DefaultAddonNone.png">$INFO[$PARAM[container]ListItem.Icon]</texture>
-                            <visible>[!Container.Content(genres) + !Container.Content(studios) + !Container.Content(countries) + !Container.Content(years) + !Container.Content(directors)] | ListItem.IsParentFolder</visible>
+                            <aspectratio aligny="center">keep</aspectratio>
+                            <texture background="true"  colordiffuse="main_fg_100" fallback="DefaultAddonNone.png">$INFO[ListItem.Icon]</texture>
+                            <visible>ListItem.IsParentFolder</visible>
                         </control>
                         <control type="image">
                             <bordersize>80</bordersize>
                             <aspectratio aligny="center">$PARAM[aspect]</aspectratio>
-                            <texture background="true" colordiffuse="main_fg_30" fallback="DefaultFolder.png">$INFO[$PARAM[container]ListItem.Label,resource://resource.images.moviecountryicons.maps/,.png]</texture>
+                            <texture background="true" colordiffuse="main_fg_30" fallback="DefaultFolder.png">$INFO[ListItem.Label,resource://resource.images.moviecountryicons.maps/,.png]</texture>
                             <visible>Container.Content(countries) + !ListItem.IsParentFolder</visible>
                         </control>
                         <control type="textbox">
@@ -549,7 +549,7 @@
                             <bottom>30</bottom>
                             <align>center</align>
                             <aligny>center</aligny>
-                            <label>$INFO[$PARAM[container]ListItem.Label]</label>
+                            <label>$INFO[ListItem.Label]</label>
                             <textcolor>main_fg_100</textcolor>
                             <font>font_bigposter_text</font>
                             <visible>[Container.Content(years) | Container.Content(directors) | Container.Content(countries)] + !ListItem.IsParentFolder</visible>
@@ -557,13 +557,13 @@
                         <control type="image">
                             <bordersize>80</bordersize>
                             <aspectratio aligny="center">$PARAM[aspect]</aspectratio>
-                            <texture background="true" colordiffuse="main_fg_100" fallback="DefaultFolder.png">$VAR[Image_GenreIcons_Path]$INFO[$PARAM[container]ListItem.Label,,.png]</texture>
+                            <texture background="true" colordiffuse="main_fg_100" fallback="DefaultFolder.png">$VAR[Image_GenreIcons_Path]$INFO[ListItem.Label,,.png]</texture>
                             <visible>Container.Content(genres) + !ListItem.IsParentFolder</visible>
                         </control>
                         <control type="image">
                             <bordersize>80</bordersize>
                             <aspectratio aligny="center">$PARAM[aspect]</aspectratio>
-                            <texture background="true" colordiffuse="main_fg_100" fallback="DefaultFolder.png">$INFO[$PARAM[container]ListItem.Label,resource://resource.images.studios.white/,.png]</texture>
+                            <texture background="true" colordiffuse="main_fg_100" fallback="DefaultFolder.png">$INFO[ListItem.Label,resource://resource.images.studios.white/,.png]</texture>
                             <visible>Container.Content(studios) + !ListItem.IsParentFolder</visible>
                         </control>
                     </control>
@@ -594,7 +594,7 @@
                 <visible>!Skin.HasSetting(furniture.flags)</visible>
                 <visible>!Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml)</visible>
                 <visible>!Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)</visible>
-                <visible>!String.IsEqual($PARAM[container]ListItem.Label,..)</visible>
+                <visible>!String.IsEqual(ListItem.Label,..)</visible>
                 <animation effect="fade" start="0" end="100" delay="30" time="1" reversible="false">Visible</animation>
                 <right>30</right>
                 <left>-30</left>
@@ -609,48 +609,48 @@
                     <width>88</width>
                     <height>48</height>
                     <centertop>50%</centertop>
-                    <texture colordiffuse="$PARAM[colordiffuse]" fallback="flags/fallback.png">$INFO[$PARAM[container]$PARAM[source]VideoResolution,flags/$PARAM[directory]/resolution/,.png]</texture>
+                    <texture colordiffuse="$PARAM[colordiffuse]" fallback="flags/fallback.png">$INFO[$PARAM[source]VideoResolution,flags/$PARAM[directory]/resolution/,.png]</texture>
                     <aspectratio align="right">keep</aspectratio>
-                    <visible>!String.IsEmpty($PARAM[container]$PARAM[source]VideoResolution) + !String.StartsWith($PARAM[container]$PARAM[source]Path,videodb://movies/sets)</visible>
+                    <visible>!String.IsEmpty($PARAM[source]VideoResolution) + !String.StartsWith($PARAM[source]Path,videodb://movies/sets)</visible>
                 </control>
                 <control type="image">
                     <width>88</width>
                     <height>48</height>
                     <centertop>50%</centertop>
-                    <texture colordiffuse="$PARAM[colordiffuse]" fallback="flags/fallback.png">$INFO[$PARAM[container]$PARAM[source]VideoCodec,flags/$PARAM[directory]/source/,.png]</texture>
+                    <texture colordiffuse="$PARAM[colordiffuse]" fallback="flags/fallback.png">$INFO[$PARAM[source]VideoCodec,flags/$PARAM[directory]/source/,.png]</texture>
                     <aspectratio align="right">keep</aspectratio>
-                    <visible>!String.IsEmpty($PARAM[container]$PARAM[source]VideoCodec)</visible>
+                    <visible>!String.IsEmpty($PARAM[source]VideoCodec)</visible>
                 </control>
                 <control type="image">
                     <width>88</width>
                     <height>48</height>
                     <centertop>50%</centertop>
-                    <texture colordiffuse="$PARAM[colordiffuse]" fallback="flags/fallback.png">$INFO[$PARAM[container]$PARAM[source]VideoAspect,flags/$PARAM[directory]/aspectratio/,.png]</texture>
+                    <texture colordiffuse="$PARAM[colordiffuse]" fallback="flags/fallback.png">$INFO[$PARAM[source]VideoAspect,flags/$PARAM[directory]/aspectratio/,.png]</texture>
                     <aspectratio align="right">keep</aspectratio>
-                    <visible>!String.IsEmpty($PARAM[container]$PARAM[source]VideoAspect)</visible>
+                    <visible>!String.IsEmpty($PARAM[source]VideoAspect)</visible>
                 </control>
                 <control type="image">
                     <width>88</width>
                     <height>48</height>
                     <centertop>50%</centertop>
-                    <texture colordiffuse="$PARAM[colordiffuse]" fallback="flags/fallback.png">$INFO[$PARAM[container]$PARAM[source]AudioCodec,flags/$PARAM[directory]/audio/,.png]</texture>
+                    <texture colordiffuse="$PARAM[colordiffuse]" fallback="flags/fallback.png">$INFO[$PARAM[source]AudioCodec,flags/$PARAM[directory]/audio/,.png]</texture>
                     <aspectratio align="right">keep</aspectratio>
-                    <visible>!String.IsEmpty($PARAM[container]$PARAM[source]AudioCodec)</visible>
+                    <visible>!String.IsEmpty($PARAM[source]AudioCodec)</visible>
                 </control>
                 
                 <control type="image">
                     <width>88</width>
                     <height>48</height>
                     <centertop>50%</centertop>
-                    <texture colordiffuse="$PARAM[colordiffuse]" fallback="flags/fallback.png">$INFO[$PARAM[container]$PARAM[source]AudioChannels,flags/$PARAM[directory]/channels/,.png]</texture>
+                    <texture colordiffuse="$PARAM[colordiffuse]" fallback="flags/fallback.png">$INFO[$PARAM[source]AudioChannels,flags/$PARAM[directory]/channels/,.png]</texture>
                     <aspectratio align="right">keep</aspectratio>
-                    <visible>!String.IsEmpty($PARAM[container]$PARAM[source]AudioChannels)</visible>
+                    <visible>!String.IsEmpty($PARAM[source]AudioChannels)</visible>
                 </control>
                 <control type="image">
                     <width>88</width>
                     <height>48</height>
                     <centertop>50%</centertop>
-                    <texture colordiffuse="$PARAM[colordiffuse]">$INFO[$PARAM[container]$PARAM[source]FileExtension,flags/$PARAM[directory]/audio/,.png]</texture>
+                    <texture colordiffuse="$PARAM[colordiffuse]">$INFO[$PARAM[source]FileExtension,flags/$PARAM[directory]/audio/,.png]</texture>
                     <aspectratio align="right">keep</aspectratio>
                     <visible>Container.Content(songs)</visible>
                 </control>
@@ -660,7 +660,7 @@
                     <centertop>50%</centertop>
                     <height>64</height>
                     <texture colordiffuse="$PARAM[colordiffuse]">flags/$PARAM[directory]/other/4K.png</texture>
-                    <visible>[String.Contains($PARAM[container]$PARAM[source]FileNameAndPath,2160p) | String.Contains($PARAM[container]$PARAM[source]FileNameAndPath,UHD) | String.Contains($PARAM[container]$PARAM[source]FileNameAndPath,UltraHD) | String.Contains($PARAM[container]$PARAM[source]FileNameAndPath,Ultra-HD) | String.Contains($PARAM[container]$PARAM[source]FileNameAndPath,4K)]</visible>
+                    <visible>[String.Contains($PARAM[source]FileNameAndPath,2160p) | String.Contains($PARAM[source]FileNameAndPath,UHD) | String.Contains($PARAM[source]FileNameAndPath,UltraHD) | String.Contains($PARAM[source]FileNameAndPath,Ultra-HD) | String.Contains($PARAM[source]FileNameAndPath,4K)]</visible>
                 </control>
                 <control type="image">
                     <width>88</width>
@@ -668,8 +668,8 @@
                     <centertop>50%</centertop>
                     <height>64</height>
                     <texture colordiffuse="$PARAM[colordiffuse]">flags/$PARAM[directory]/other/bluray.png</texture>
-                    <visible>[String.Contains($PARAM[container]$PARAM[source]FileNameAndPath,blu-ray) | String.Contains($PARAM[container]$PARAM[source]FileNameAndPath,bluray) | String.Contains($PARAM[container]$PARAM[source]FileNameAndPath,bdrip) | String.Contains($PARAM[container]$PARAM[source]FileNameAndPath,bd25) | String.Contains($PARAM[container]$PARAM[source]FileNameAndPath,bd50)]</visible>
-                    <visible>![String.Contains($PARAM[container]$PARAM[source]FileNameAndPath,2160p) | String.Contains($PARAM[container]$PARAM[source]FileNameAndPath,UHD) | String.Contains($PARAM[container]$PARAM[source]FileNameAndPath,UltraHD) | String.Contains($PARAM[container]$PARAM[source]FileNameAndPath,Ultra-HD) | String.Contains($PARAM[container]$PARAM[source]FileNameAndPath,4K)]</visible>
+                    <visible>[String.Contains($PARAM[source]FileNameAndPath,blu-ray) | String.Contains($PARAM[source]FileNameAndPath,bluray) | String.Contains($PARAM[source]FileNameAndPath,bdrip) | String.Contains($PARAM[source]FileNameAndPath,bd25) | String.Contains($PARAM[source]FileNameAndPath,bd50)]</visible>
+                    <visible>![String.Contains($PARAM[source]FileNameAndPath,2160p) | String.Contains($PARAM[source]FileNameAndPath,UHD) | String.Contains($PARAM[source]FileNameAndPath,UltraHD) | String.Contains($PARAM[source]FileNameAndPath,Ultra-HD) | String.Contains($PARAM[source]FileNameAndPath,4K)]</visible>
                 </control>
                 <control type="image">
                     <width>88</width>
@@ -677,7 +677,7 @@
                     <centertop>50%</centertop>
                     <height>64</height>
                     <texture colordiffuse="$PARAM[colordiffuse]">flags/$PARAM[directory]/other/dvd.png</texture>
-                    <visible>String.Contains($PARAM[container]$PARAM[source]FileNameAndPath,dvd)</visible>
+                    <visible>String.Contains($PARAM[source]FileNameAndPath,dvd)</visible>
                 </control>
                 <control type="image">
                     <width>88</width>
@@ -685,7 +685,7 @@
                     <centertop>50%</centertop>
                     <height>64</height>
                     <texture colordiffuse="$PARAM[colordiffuse]">flags/$PARAM[directory]/other/hdtv.png</texture>
-                    <visible>String.Contains($PARAM[container]$PARAM[source]FileNameAndPath,hdtv) | String.Contains($PARAM[container]$PARAM[source]FileNameAndPath,pdtv) | String.Contains($PARAM[container]$PARAM[source]FileNameAndPath,dsr)</visible>
+                    <visible>String.Contains($PARAM[source]FileNameAndPath,hdtv) | String.Contains($PARAM[source]FileNameAndPath,pdtv) | String.Contains($PARAM[source]FileNameAndPath,dsr)</visible>
                 </control>
                 <control type="image">
                     <width>88</width>
@@ -693,7 +693,7 @@
                     <centertop>50%</centertop>
                     <height>64</height>
                     <texture colordiffuse="$PARAM[colordiffuse]">flags/$PARAM[directory]/other/web-dl.png</texture>
-                    <visible>String.Contains($PARAM[container]$PARAM[source]FileNameAndPath,web-dl) | String.Contains($PARAM[container]$PARAM[source]FileNameAndPath,webdl) | String.Contains($PARAM[container]$PARAM[source]FileNameAndPath,WEBRip)</visible>
+                    <visible>String.Contains($PARAM[source]FileNameAndPath,web-dl) | String.Contains($PARAM[source]FileNameAndPath,webdl) | String.Contains($PARAM[source]FileNameAndPath,WEBRip)</visible>
                 </control>
                 <control type="image">
                     <width>88</width>
@@ -701,7 +701,7 @@
                     <centertop>50%</centertop>
                     <height>64</height>
                     <texture colordiffuse="$PARAM[colordiffuse]">flags/$PARAM[directory]/other/3D.png</texture>
-                    <visible>$PARAM[container]$PARAM[source]IsStereoscopic</visible>
+                    <visible>$PARAM[source]IsStereoscopic</visible>
                 </control>
                 <control type="group">
                     <width>1000</width>

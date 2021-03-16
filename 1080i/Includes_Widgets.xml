@@ -102,7 +102,8 @@
                 <include content="Home_Widgets_Grouplist" condition="!Skin.HasSetting(HomeWidgetsUnified) + [String.IsEmpty(Skin.String(HomeNumItems)) | Integer.IsGreater(Skin.String(HomeNumItems),11)]">
                     <param name="pos" value="11" />
                 </include>
-                <control type="button" id="9966">
+                <!-- Hidden button to activate weather window on weather widget -->
+				<control type="button" id="9966">
                     <onleft>300</onleft>
                     <onright>300</onright>
                     <onup>300</onup>
@@ -115,10 +116,12 @@
                     <visible>String.IsEqual(Container(300).ListItem.Property(widget),Weather)</visible>
                     <animation effect="fade" end="0" condition="true">Conditional</animation>
                 </control>
-                <control type="group">
+                <!-- Weather widget -->
+				<control type="group">
                     <visible>String.IsEqual(Container(300).ListItem.Property(widget),Weather)</visible>
                     <include>Weather</include>
                 </control>
+				<!-- Settings widget -->
                 <control type="group">
                     <top>topbar_height</top>
                     <left>40</left>
