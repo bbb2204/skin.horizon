@@ -514,6 +514,13 @@
                 <icon>special://skin/extras/icons/info.png</icon>
                 <onclick>SendClick(10)</onclick>
                 <visible>Control.IsEnabled(10)</visible>
+            </item>
+            <!-- Versions -->
+            <item>
+                <label>$INFO[Control.GetLabel(14)]</label>
+                <icon>special://skin/extras/icons/tags.png</icon>
+                <onclick>SendClick(14)</onclick>
+                <visible>Control.IsEnabled(14)</visible>
             </item>			
             <!-- Auto Update -->
             <item>

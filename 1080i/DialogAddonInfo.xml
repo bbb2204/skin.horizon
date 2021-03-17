@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Foundation -->
 <window id="146">
-    <defaultcontrol always="true">8000</defaultcontrol>
+    <defaultcontrol always="true">9000</defaultcontrol>
     <controls>
         <include>View_Info_Poster</include>
         <control type="group">
@@ -187,13 +187,18 @@
             <visible>Control.IsEnabled(7)</visible>
         </control>
         <control type="button" id="8">
-            <description>Play button</description>
-            <label>24069</label>
+            <description>Update</description>
+            <label>24138</label>
             <include>Defs_Hidden_Button</include>
             <visible>Control.IsEnabled(8)</visible>
         </control>
         <control type="button" id ="9">
             <label>5</label>
+			<!-- Added this since in Matrix when the window loads, it is this button that has focus -->
+			<onleft>300</onleft>
+			<onright>300</onright>
+			<onup>300</onup>
+			<ondown>300</ondown>
             <include>Defs_Hidden_Button</include>
             <visible>Control.IsEnabled(9)</visible>
         </control>
@@ -213,6 +218,12 @@
             <visible>Control.IsEnabled(13)</visible>
             <include>Defs_Hidden_Button</include>
         </control>
+		<control type="button" id="14"> 
+		    <description>Versions</description>
+			<label>$LOCALIZE[24069]</label>
+			<include>Defs_Hidden_Button</include>
+            <visible>Control.IsEnabled(14)</visible>
+		</control>
     </controls>
 
 </window>
