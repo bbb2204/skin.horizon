@@ -519,7 +519,8 @@
                         </control>
                         
                         <control type="group">
-                            <visible>[!ListItem.IsParentFolder + ![Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]]</visible>
+                            <visible>[!ListItem.IsParentFolder + ![Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + 
+							                                     ![Container.Content(genres) | Container.Content(studios) | Container.Content(countries) | Container.Content(years) | Container.Content(directors)]]</visible>
         
                             <control type="image">
                                 <aspectratio aligny="center">$PARAM[aspect]</aspectratio>
