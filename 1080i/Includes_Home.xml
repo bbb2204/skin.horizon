@@ -440,21 +440,21 @@
                 <visible>Control.IsEnabled(9002)</visible>
             </item>
             <!-- Youtube -->
-            <item>
+<!--            <item>
                 <label>$INFO[Control.GetLabel(9003)]</label>
                 <icon>special://skin/extras/icons/youtube.png</icon>
                 <onclick>SetFocus(9003)</onclick>
                 <onclick>Select</onclick>
                 <visible>Control.IsEnabled(9003)</visible>
-            </item>
+            </item> -->
             <!-- Crew -->
-            <item>
+<!--            <item>
                 <label>$INFO[Control.GetLabel(9004)]</label>
                 <icon>special://skin/extras/icons/actor.png</icon>
                 <onclick>SetFocus(9004)</onclick>
                 <onclick>Select</onclick>
                 <visible>Control.IsEnabled(9004)</visible>
-            </item>
+            </item> -->
         </content>
     </include>
 
@@ -960,13 +960,13 @@
             </control>
             <include content="Home_Textbar_Item_Label" condition="![Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPlaylist.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | 
 			Window.IsVisible(MyGames.xml) | 
-			Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml) | Window.IsVisible(DialogAddonInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)]">
+			Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml) | Window.IsVisible(DialogAddonInfo.xml) | Window.IsVisible(script-embuary-video.xml) | Window.IsVisible(script-embuary-person.xml)]">
                 <param name="id" value="$PARAM[id]" />
                 <param name="font" value="font_mainmenu" />
             </include>
             <include content="Home_Textbar_Item_Label" condition="[Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml) | Window.IsVisible(MyWeather.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPlaylist.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPrograms.xml) | Window.IsVisible(MyPics.xml) | 
 			Window.IsVisible(MyGames.xml) | 
-			Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml) | Window.IsVisible(DialogAddonInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)]">
+			Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml) | Window.IsVisible(DialogAddonInfo.xml) | Window.IsVisible(script-embuary-video.xml) | Window.IsVisible(script-embuary-person.xml)]">
                 <param name="id" value="$PARAM[id]" />
                 <param name="font" value="font_submenu" />
             </include>

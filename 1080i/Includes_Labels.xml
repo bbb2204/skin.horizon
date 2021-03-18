@@ -127,7 +127,7 @@
         <value condition="Window.IsVisible(FileManager.xml)">$LOCALIZE[7]</value>
         <value condition="Window.IsVisible(MyPlaylist.xml)">$LOCALIZE[13350]$INFO[ListItem.TvShowTitle, / ,]</value>
 
-        <value condition="[Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml) | Window.IsVisible(DialogAddonInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)]">$VAR[Label_Title]</value>
+        <value condition="[Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml) | Window.IsVisible(DialogAddonInfo.xml) | Window.IsVisible(script-embuary-video.xml) | Window.IsVisible(script-embuary-person.xml)]">$VAR[Label_Title]</value>
         <value condition="Window.IsVisible(script-globalsearch-main.xml)">$LOCALIZE[283]...</value>
 
         <value condition="String.Contains(Container.FolderPath,videodb://recentlyaddedmovies/)">$LOCALIZE[20386]</value>
@@ -195,7 +195,7 @@
         <value condition="Control.HasFocus(300) + Skin.HasSetting(IconOnlyMode)">$INFO[Container(300).ListItem.Label,[COLOR=main_fg_100],[/COLOR]]</value>
         <value condition="Window.IsVisible(script-nextup-notification-PostPlayInfo.xml)">$INFO[Window.Property(next.tvshowtitle),[COLOR=main_fg_100],[/COLOR]]</value>
         <value condition="Window.IsVisible(weather) | [Window.IsVisible(Home) + String.IsEqual(Container(300).ListItem.Property(widget),Weather) + Control.HasFocus(9966)]">[COLOR=main_fg_70]$INFO[Window(Weather).Property(WeatherProvider),$LOCALIZE[31006] ,][/COLOR]</value>
-        <value condition="Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml) | Window.IsVisible(DialogAddonInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)">$VAR[Label_InfoLine]</value>
+        <value condition="Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml) | Window.IsVisible(DialogAddonInfo.xml) | Window.IsVisible(script-embuary-video.xml) | Window.IsVisible(script-embuary-person.xml)">$VAR[Label_InfoLine]</value>
         <value condition="Window.IsVisible(script-globalsearch-main.xml)">$INFO[Control.GetLabel(110),, [COLOR=main_fg_100]$LOCALIZE[342]   [/COLOR]]$INFO[Control.GetLabel(120),, [COLOR=main_fg_100]$LOCALIZE[20343]   [/COLOR]]$INFO[Control.GetLabel(140),, [COLOR=main_fg_100]$LOCALIZE[20360]   [/COLOR]]$INFO[Control.GetLabel(160),, [COLOR=main_fg_100]$LOCALIZE[133]   [/COLOR]]$INFO[Control.GetLabel(170),, [COLOR=main_fg_100]$LOCALIZE[132]   [/COLOR]]$INFO[Control.GetLabel(110),, [COLOR=main_fg_100]$LOCALIZE[134]   [/COLOR]]</value>
         <value condition="Window.IsVisible(Home)">$INFO[Container(300).ListItem.Label,[COLOR=main_fg_100],[/COLOR]]</value>
         <value condition="Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRChannels.xml)">$INFO[Control.GetLabel(28),[COLOR=main_fg_100],[/COLOR]]$INFO[Container.NumItems,[COLOR=main_fg_70]  •  [/COLOR], [COLOR=main_fg_100]$LOCALIZE[14301][/COLOR]]</value>
@@ -288,34 +288,20 @@
     </variable>
 
     <variable name="Label_VideoInfo_Rating">
-        <value condition="Control.IsVisible(150) + !String.IsEmpty(Container(150).ListItem.Rating)">[COLOR=$VAR[ColorHighlight]]  |  [/COLOR]$INFO[Container(150).ListItem.Rating]</value>
-        <value condition="Control.IsVisible(250) + !String.IsEmpty(Container(150).ListItem.Rating)">[COLOR=$VAR[ColorHighlight]]  |  [/COLOR]$INFO[Container(250).ListItem.Rating]</value>
+        <value condition="Control.IsVisible(10052) + !String.IsEmpty(Container(10052).ListItem.Rating)">[COLOR=$VAR[ColorHighlight]]  |  [/COLOR]$INFO[Container(10052).ListItem.Rating]</value>
+        <value condition="Control.IsVisible(10053) + !String.IsEmpty(Container(10052).ListItem.Rating)">[COLOR=$VAR[ColorHighlight]]  |  [/COLOR]$INFO[Container(10053).ListItem.Rating]</value>
     </variable>
 
     <variable name="Label_VideoInfo_Year">
-        <value condition="Control.IsVisible(150) + !String.IsEmpty(Container(150).ListItem.Year)">[COLOR=$VAR[ColorHighlight]]  |  [/COLOR]$INFO[Container(150).ListItem.Year]</value>
+        <value condition="Control.IsVisible(10052) + !String.IsEmpty(Container(10052).ListItem.Year)">[COLOR=$VAR[ColorHighlight]]  |  [/COLOR]$INFO[Container(10052).ListItem.Year]</value>
     </variable>
 
     <variable name="Label_VideoInfo_Title">
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) + Control.IsVisible(150)">$INFO[Container(150).ListItem.Label]</value>
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) + Control.IsVisible(250)">$INFO[Container(250).ListItem.Label]</value>
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) + Control.IsVisible(350)">$INFO[Container(350).ListItem.Label]</value>
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) + Control.IsVisible(550)">$INFO[Container(550).ListItem.Label]</value>
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + Control.IsVisible(1000)">$INFO[Container(1000).ListItem.Label]</value>
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + Control.IsVisible(150)">$INFO[Container(150).ListItem.Label]</value>
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + Control.IsVisible(250)">$INFO[Container(250).ListItem.Label]</value>
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + Control.IsVisible(350)">$INFO[Container(350).ListItem.Label]</value>
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + Control.IsVisible(450)">$INFO[Container(450).ListItem.Label]</value>
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + Control.IsVisible(550)">$INFO[Container(550).ListItem.Label]</value>
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + Control.IsVisible(650)">$INFO[Container(650).ListItem.Label]</value>
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + Control.IsVisible(750)">$INFO[Container(750).ListItem.Label]</value>
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + Control.IsVisible(850)">$INFO[Container(850).ListItem.Label]</value>
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + Control.IsVisible(950)">$INFO[Container(950).ListItem.Label]</value>
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + Control.IsVisible(1050)">$INFO[Container(1050).ListItem.Label]</value>
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + Control.IsVisible(1150)">$INFO[Container(1150).ListItem.Label]</value>
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + Control.IsVisible(1250)">$INFO[Container(1250).ListItem.Label]</value>
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + Control.IsVisible(1350)">$INFO[Container(1350).ListItem.Label]</value>
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + Control.IsVisible(1450)">$INFO[Container(1450).ListItem.Label]</value>
+        <value condition="Window.IsVisible(script-embuary-person.xml) + Control.IsVisible(10052)">$INFO[Container(10052).ListItem.Label]</value>
+        <value condition="Window.IsVisible(script-embuary-person.xml) + Control.IsVisible(10053)">$INFO[Container(10053).ListItem.Label]</value>
+        <value condition="Window.IsVisible(script-embuary-video.xml) + Control.IsVisible(1000)">$INFO[Container(1000).ListItem.Label]</value>
+        <value condition="Window.IsVisible(script-embuary-video.xml) + Control.IsVisible(10052)">$INFO[Container(10052).ListItem.Label]</value>
+        <value condition="Window.IsVisible(script-embuary-video.xml) + Control.IsVisible(10053)">$INFO[Container(10053).ListItem.Label]</value>
         <value condition="[Control.HasFocus(50) | String.IsEqual(Window(Home).Property(FocusedList),50)] + !Container(50).IsUpdating">$INFO[Container(50).ListItem.Label]</value>
         <value condition="[Control.HasFocus(9502) | String.IsEqual(Window(Home).Property(FocusedList),9502)] + !Container(9502).IsUpdating">$INFO[Container(9502).ListItem.Label]</value>
         <value condition="[Control.HasFocus(9503) | String.IsEqual(Window(Home).Property(FocusedList),9503)] + !Container(9503).IsUpdating">$INFO[Container(9503).ListItem.Label,Similar Movies  -  ,]</value>
@@ -324,11 +310,11 @@
     </variable>
 
     <variable name="Label_VideoInfo_InfoLine">
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + Control.IsVisible(1000)">$INFO[Container(1000).ListItem.Property(character),[COLOR=panel_fg_70]$LOCALIZE[20347][/COLOR] ,]</value>
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + Control.IsVisible(750)">$INFO[Container(750).ListItem.Property(job)]</value>
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) + Control.IsVisible(150)">$INFO[Container(150).ListItem.Property(character),[COLOR=panel_fg_70]$LOCALIZE[20347][/COLOR] ,]</value>
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) + Control.IsVisible(250)">$INFO[Container(250).ListItem.Property(character),[COLOR=panel_fg_70]$LOCALIZE[20347][/COLOR] ,]</value>
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) + Control.IsVisible(550)">$INFO[Container(550).ListItem.Property(job),[COLOR=panel_fg_70]$LOCALIZE[20347][/COLOR] ,]</value>
+        <value condition="Window.IsVisible(script-embuary-video.xml) + Control.IsVisible(1000)">$INFO[Container(1000).ListItem.Property(character),[COLOR=panel_fg_70]$LOCALIZE[20347][/COLOR] ,]</value>
+        <value condition="Window.IsVisible(script-embuary-video.xml) + Control.IsVisible(750)">$INFO[Container(750).ListItem.Property(job)]</value>
+        <value condition="Window.IsVisible(script-embuary-person.xml) + Control.IsVisible(10052)">$INFO[Container(10052).ListItem.Property(character),[COLOR=panel_fg_70]$LOCALIZE[20347][/COLOR] ,]</value>
+        <value condition="Window.IsVisible(script-embuary-person.xml) + Control.IsVisible(10053)">$INFO[Container(10053).ListItem.Property(character),[COLOR=panel_fg_70]$LOCALIZE[20347][/COLOR] ,]</value>
+        <value condition="Window.IsVisible(script-embuary-person.xml) + Control.IsVisible(550)">$INFO[Container(550).ListItem.Property(job),[COLOR=panel_fg_70]$LOCALIZE[20347][/COLOR] ,]</value>
         <value condition="[Control.HasFocus(50) | String.IsEqual(Window(Home).Property(FocusedList),50)] + !Container(50).IsUpdating">$INFO[Container(50).ListItem.Label2,[COLOR=panel_fg_70]$LOCALIZE[20347][/COLOR] ,]</value>
         <value condition="[Control.HasFocus(9502) | String.IsEqual(Window(Home).Property(FocusedList),9502)] + !Container(9502).IsUpdating">$INFO[Container(9502).ListItem.Year,  •  ,]</value>
     </variable>
@@ -359,8 +345,8 @@
 
     <variable name="Label_Title">
         
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml)">$INFO[Window.Property(label)]</value>
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)">$INFO[Window.Property(label)]</value>
+        <value condition="Window.IsVisible(script-embuary-video.xml)">$INFO[Container(10051).ListItem.Label]</value>
+        <value condition="Window.IsVisible(script-embuary-person.xml)">$INFO[Container(10051).ListItem.Label]</value>
         <value condition="[Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml)] + !String.IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
 
         <value condition="Container.Content(artists) | Container.Content(albums) | Container.Content(songs)">$INFO[ListItem.Artist]</value>
@@ -371,8 +357,8 @@
     </variable>
 
     <variable name="Label_InfoLine">
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)">$INFO[Window.Property(AlsoKnownAs),[COLOR=main_fg_100],[/COLOR]]</value>
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml)">$INFO[Window.Property(year),[COLOR=main_fg_100],[/COLOR]]$INFO[Window.Property(mpaa),  |  [COLOR=main_fg_100],[/COLOR]]$INFO[Window.Property(duration),  |  [COLOR=main_fg_100], $LOCALIZE[31102][/COLOR]]$INFO[Window.Property(rating),  |  [COLOR=main_fg_100],[/COLOR]]</value>
+        <value condition="Window.IsVisible(script-embuary-person.xml)">$INFO[Window.Property(AlsoKnownAs),[COLOR=main_fg_100],[/COLOR]]</value>
+        <value condition="Window.IsVisible(script-embuary-video.xml)">$INFO[Container(10051).ListItem.Year,[COLOR=main_fg_100],[/COLOR]]$INFO[Container(10051).ListItem.MPAA,  |  [COLOR=main_fg_100],[/COLOR]]$INFO[Container(10051).ListItem.Duration,  |  [COLOR=main_fg_100], $LOCALIZE[31102][/COLOR]]$INFO[Container(10051).ListItem.Rating,  |  [COLOR=main_fg_100],[/COLOR]]</value>
 
         <value condition="Container.Content(movies)">$INFO[ListItem.Year,[COLOR=main_fg_100],[/COLOR]  |  ]$VAR[Label_MPAA,[COLOR=main_fg_100],[/COLOR]  |  ]$VAR[Label_Duration,[COLOR=main_fg_100],[/COLOR]  |  ]$VAR[Label_EndTime,[COLOR=main_fg_100]$LOCALIZE[31106] ,[/COLOR]  |  ]$VAR[Label_Rating,[COLOR=main_fg_100],[/COLOR]]</value>
         <value condition="Container.Content(episodes)">$INFO[ListItem.TvShowTitle,[COLOR=main_fg_100],[/COLOR]  |  ]$INFO[ListItem.Premiered,[COLOR=main_fg_100],[/COLOR]  |  ]$VAR[Label_MPAA,[COLOR=main_fg_100],[/COLOR]  |  ]$VAR[Label_Duration,[COLOR=main_fg_100],[/COLOR]  |  ]$VAR[Label_EndTime,[COLOR=main_fg_100]$LOCALIZE[31106] ,[/COLOR]  |  ]$VAR[Label_Rating,[COLOR=main_fg_100],[/COLOR]]</value>
@@ -437,7 +423,7 @@
     </variable>
 
     <variable name="Label_OverlayTitle">
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)">$INFO[Window.Property(label)]</value>
+        <value condition="Window.IsVisible(script-embuary-video.xml) | Window.IsVisible(script-embuary-person.xml)">$INFO[Container(10051).ListItem.Label]</value>
         <value condition="!String.IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
         <value condition="!String.IsEmpty(ListItem.Label)">$INFO[ListItem.Label]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Title))">$INFO[Window(Home).Property(SkinHelper.ListItem.Title)]</value>
@@ -445,8 +431,8 @@
     </variable>
 
     <variable name="Label_OverlayPlot">
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml)">$INFO[Window.Property(plot)]</value>
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)">$INFO[Window.Property(biography)]</value>
+        <value condition="Window.IsVisible(script-embuary-video.xml)">$INFO[Container(10051).ListItem.Plot]</value>
+        <value condition="Window.IsVisible(script-embuary-person.xml)">$INFO[Container(10051).ListItem.Property(Biography)]</value>
         <value condition="!String.IsEmpty(ListItem.AddonDescription) | !String.IsEmpty(ListItem.AddonDisclaimer) | !String.IsEmpty(ListItem.AddonNews)">$INFO[ListItem.AddonDisclaimer,[B]$LOCALIZE[24052][/B][CR],[CR][CR]]$INFO[ListItem.AddonDescription,[B]$LOCALIZE[21821][/B][CR],[CR][CR]]$INFO[ListItem.AddonNews,[B]$LOCALIZE[31303][/B][CR],[CR][CR]]</value>
         <value condition="!String.IsEmpty(ListItem.Plot)">$INFO[ListItem.Tagline,[B],[/B][CR]]$INFO[ListItem.Artist,[B],[/B][CR]]$INFO[ListItem.Plot]</value>
         <value condition="Window.IsVisible(Home) + [!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.AddonDescription)) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.AddonDisclaimer)) | !String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.AddonNews))]">$INFO[Window(Home).Property(SkinHelper.ListItem.AddonDisclaimer),[B]$LOCALIZE[24052][/B][CR],[CR][CR]]$INFO[Window(Home).Property(SkinHelper.ListItem.AddonDescription),[B]$LOCALIZE[21821][/B][CR],[CR][CR]]$INFO[Window(Home).Property(SkinHelper.ListItem.AddonNews),[B]$LOCALIZE[31303][/B][CR],[CR][CR]]</value>

@@ -36,7 +36,7 @@
     <include name="View_Info_Poster">
         <control type="group">
             <include>View_Group</include>
-            <visible>!Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + !Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)</visible>
+            <visible>!Window.IsVisible(script-embuary-video.xml) + !Window.IsVisible(script-embuary-person.xml)</visible>
             <include>Animation_Left_Delay</include>
             <include>Animation_Home_Textbar_Slideover_Library</include>
             <include>View_Library_Poster</include>
@@ -79,7 +79,7 @@
                     <visible>Window.IsVisible(MyPlaylist.xml) | Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(AddonBrowser.xml) | Window.IsVisible(MyPics.xml) | Window.IsVisible(MyGames.xml) | Window.IsVisible(MyPrograms.xml)</visible>
                     <include>Animation_Left</include>
                     <visible>![Window.IsVisible(DialogAddonInfo.xml) | Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml)]</visible>
-                    <visible>!Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + !Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)</visible>
+                    <visible>!Window.IsVisible(script-embuary-video.xml) + !Window.IsVisible(script-embuary-person.xml)</visible>
                     <control type="group">
                         <visible>Control.IsVisible(50) | Control.IsVisible(55)</visible>
                         <include>View_Library_Poster</include>

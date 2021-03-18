@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Foundation -->
 <window>
-    <defaultcontrol always="true">150</defaultcontrol>
+    <defaultcontrol always="true">1000</defaultcontrol>
+    <onload>Dialog.Close(1112)</onload>
     <onload>ClearProperty(FocusedList,Home)</onload>
     <onunload>ClearProperty(FocusedList,Home)</onunload>
     <onunload condition="!Player.HasVideo + Window.IsVisible(VideoOSD.xml)">SetFocus(50)</onunload>
     <controls>
 
+        <include>Global_Background</include>
+        <include>Topbar_Gradient</include>
         <control type="group">
             <height>topbar_height</height>
+            <include>Topbar_Texture</include>
             <include>Topbar_TextDetails</include>
         </control>
+
         <control type="group">
             <width>view_left</width>
-            <include>Animation_Home_Textbar_Slideover_Library</include>
             <include>View_Group</include>
+            <include>Animation_Home_Textbar_Slideover_Library</include>
             <include>Animation_Left_Delay</include>
             <control type="image">
                 <include>Defs_Shadow_Opaque</include>
@@ -28,9 +33,9 @@
         </control>
 
         <control type="group">
+            <include>Animation_Home_Textbar_Slideover_Library</include>
             <include>Animation_Right_Delay</include>
             <top>view_top</top>
-            <include>Animation_Home_Textbar_Slideover_Library</include>
             <!-- Plot -->
             <control type="group">
                 <left>info_left</left>
@@ -51,7 +56,7 @@
                         <aligny>center</aligny>
                         <width>auto</width>
                         <height>100%</height>
-                        <label>$LOCALIZE[21887]</label>
+                        <label>$LOCALIZE[207]</label>
                     </control>
                 </control>
                 <control type="textbox">
@@ -59,7 +64,7 @@
                     <height>130</height>
                     <textcolor>main_fg_70</textcolor>
                     <font>font_plotbox</font>
-                    <label>$INFO[Window.Property(biography)]</label>
+                    <label>$INFO[Window.Property(plot)]</label>
                 </control>
             </control>
 
@@ -90,9 +95,28 @@
                     </control>
                 </control>
 
-                <!-- Movies -->
+                <!-- Cast -->
+                <control type="list" id="1000">
+                    <visible allowhiddenfocus="true">String.IsEqual(Window(Home).Property(FocusedList),1000) | Control.HasFocus(1000) | String.IsEmpty(Window(Home).Property(FocusedList))</visible>
+                    <include>Animation_FadeInOut</include>
+                    <onleft>300</onleft>
+                    <onright>noop</onright>
+                    <include>View_Info_Movement</include>
+                    <onfocus>SetProperty(FocusedList,1000,Home)</onfocus>
+                    <orientation>horizontal</orientation>
+                    <animation effect="fade" start="100" end="0" time="0" condition="Container(1000).IsUpdating">Conditional</animation>
+                    <include content="View_Actor_Layout">
+                        <param name="id" value="1000" />
+                        <param name="label2" value="$INFO[ListItem.Property(character)]" />
+                    </include>
+                </control>
+                <include content="Dialog_VideoInfo_BusyIndicator">
+                    <param name="id" value="1000" />
+                </include>
+
+                <!-- Similar -->
                 <control type="list" id="150">
-                    <visible allowhiddenfocus="true">String.IsEqual(Window(Home).Property(FocusedList),150) | Control.HasFocus(150) | String.IsEmpty(Window(Home).Property(FocusedList))</visible>
+                    <visible allowhiddenfocus="true">String.IsEqual(Window(Home).Property(FocusedList),150) | Control.HasFocus(150)</visible>
                     <include>Animation_FadeInOut</include>
                     <onleft>300</onleft>
                     <onright>noop</onright>
@@ -107,25 +131,6 @@
                 </control>
                 <include content="Dialog_VideoInfo_BusyIndicator">
                     <param name="id" value="150" />
-                </include>
-
-                <!-- TV -->
-                <control type="list" id="250">
-                    <visible allowhiddenfocus="true">String.IsEqual(Window(Home).Property(FocusedList),250) | Control.HasFocus(250)</visible>
-                    <include>Animation_FadeInOut</include>
-                    <onleft>300</onleft>
-                    <onright>noop</onright>
-                    <include>View_Info_Movement</include>
-                    <onfocus>SetProperty(FocusedList,250,Home)</onfocus>
-                    <orientation>horizontal</orientation>
-                    <animation effect="fade" start="100" end="0" time="0" condition="Container(10053).IsUpdating">Conditional</animation>
-                    <include content="View_Actor_Layout">
-                        <param name="id" value="250" />
-                        <param name="infolabel" value="false" />
-                    </include>
-                </control>
-                <include content="Dialog_VideoInfo_BusyIndicator">
-                    <param name="id" value="250" />
                 </include>
 
                 <!-- Youtube -->
@@ -149,22 +154,22 @@
                 </include>
 
                 <!-- Crew -->
-                <control type="list" id="550">
-                    <visible allowhiddenfocus="true">String.IsEqual(Window(Home).Property(FocusedList),550) | Control.HasFocus(550)</visible>
+                <control type="list" id="750">
+                    <visible allowhiddenfocus="true">String.IsEqual(Window(Home).Property(FocusedList),750) | Control.HasFocus(750)</visible>
                     <include>Animation_FadeInOut</include>
                     <onleft>300</onleft>
                     <onright>noop</onright>
                     <include>View_Info_Movement</include>
-                    <onfocus>SetProperty(FocusedList,550,Home)</onfocus>
+                    <onfocus>SetProperty(FocusedList,750,Home)</onfocus>
                     <orientation>horizontal</orientation>
-                    <animation effect="fade" start="100" end="0" time="0" condition="Container(550).IsUpdating">Conditional</animation>
+                    <animation effect="fade" start="100" end="0" time="0" condition="Container(750).IsUpdating">Conditional</animation>
                     <include content="View_Actor_Layout">
-                        <param name="id" value="550" />
-                        <param name="infolabel" value="false" />
+                        <param name="id" value="750" />
+                        <param name="label2" value="$INFO[ListItem.Property(job)]" />
                     </include>
                 </control>
                 <include content="Dialog_VideoInfo_BusyIndicator">
-                    <param name="id" value="550" />
+                    <param name="id" value="750" />
                 </include>
 
             </control>
@@ -172,12 +177,12 @@
             <!-- Info -->
             <control type="grouplist">
                 <left>info_left</left>
-                <top>658</top>
+                <top>650</top>
                 <right>70</right>
                 <orientation>vertical</orientation>
                 <control type="group">
                     <height>42</height>
-                    <visible>!String.IsEmpty(Window.Property(PlaceOfBirth))</visible>
+                    <visible>!String.IsEmpty(Window.Property(Director))</visible>
                     <control type="label">
                         <font>font_small</font>
                         <textcolor>main_fg_30</textcolor>
@@ -186,7 +191,7 @@
                         <align>right</align>
                         <textoffsetx>20</textoffsetx>
                         <height>100%</height>
-                        <label>$ADDON[script.extendedinfo 32014]</label>
+                        <label>$LOCALIZE[20339]</label>
                     </control>
                     <control type="label">
                         <height>42</height>
@@ -195,12 +200,12 @@
                         <textcolor>main_fg_100</textcolor>
                         <aligny>center</aligny>
                         <width>auto</width>
-                        <label>$INFO[Window.Property(PlaceOfBirth)]</label>
+                        <label>$INFO[Window.Property(Director)]</label>
                     </control>
                 </control>
                 <control type="group">
                     <height>42</height>
-                    <visible>!String.IsEmpty(Window.Property(Birthday))</visible>
+                    <visible>!String.IsEmpty(Window.Property(Writer))</visible>
                     <control type="label">
                         <font>font_small</font>
                         <textcolor>main_fg_30</textcolor>
@@ -209,7 +214,7 @@
                         <align>right</align>
                         <textoffsetx>20</textoffsetx>
                         <height>100%</height>
-                        <label>$ADDON[script.extendedinfo 32012]</label>
+                        <label>$LOCALIZE[20417]</label>
                     </control>
                     <control type="label">
                         <height>42</height>
@@ -218,12 +223,12 @@
                         <textcolor>main_fg_100</textcolor>
                         <aligny>center</aligny>
                         <width>auto</width>
-                        <label>$INFO[Window.Property(Birthday)]</label>
+                        <label>$INFO[Window.Property(Writer)]</label>
                     </control>
                 </control>
                 <control type="group">
                     <height>42</height>
-                    <visible>!String.IsEmpty(Window.Property(DeathDay))</visible>
+                    <visible>!String.IsEmpty(Window.Property(Genre))</visible>
                     <control type="label">
                         <font>font_small</font>
                         <textcolor>main_fg_30</textcolor>
@@ -232,7 +237,7 @@
                         <align>right</align>
                         <textoffsetx>20</textoffsetx>
                         <height>100%</height>
-                        <label>$ADDON[script.extendedinfo 32013]</label>
+                        <label>$LOCALIZE[515]</label>
                     </control>
                     <control type="label">
                         <height>42</height>
@@ -241,12 +246,12 @@
                         <textcolor>main_fg_100</textcolor>
                         <aligny>center</aligny>
                         <width>auto</width>
-                        <label>$INFO[Window.Property(DeathDay)]</label>
+                        <label>$INFO[Window.Property(Genre)]</label>
                     </control>
                 </control>
                 <control type="group">
                     <height>42</height>
-                    <visible>!String.IsEmpty(Window.Property(Age))</visible>
+                    <visible>!String.IsEmpty(Window.Property(Budget))</visible>
                     <control type="label">
                         <font>font_small</font>
                         <textcolor>main_fg_30</textcolor>
@@ -255,7 +260,7 @@
                         <align>right</align>
                         <textoffsetx>20</textoffsetx>
                         <height>100%</height>
-                        <label>$ADDON[script.extendedinfo 32020]</label>
+                        <label>$ADDON[script.extendedinfo 32109]</label>
                     </control>
                     <control type="label">
                         <height>42</height>
@@ -264,7 +269,29 @@
                         <textcolor>main_fg_100</textcolor>
                         <aligny>center</aligny>
                         <width>auto</width>
-                        <label>$INFO[Window.Property(Age)]</label>
+                        <label>$INFO[Window.Property(Budget),$,]</label>
+                    </control>
+                </control>
+                <control type="group">
+                    <height>42</height>
+                    <visible>!String.IsEmpty(Window.Property(Revenue))</visible>
+                    <control type="label">
+                        <font>font_small</font>
+                        <textcolor>main_fg_30</textcolor>
+                        <aligny>center</aligny>
+                        <width>info_details_width</width>
+                        <align>right</align>
+                        <textoffsetx>20</textoffsetx>
+                        <label>$ADDON[script.extendedinfo 32108]</label>
+                    </control>
+                    <control type="label">
+                        <height>42</height>
+                        <left>info_details_width</left>
+                        <font>font_small</font>
+                        <textcolor>main_fg_100</textcolor>
+                        <aligny>center</aligny>
+                        <width>auto</width>
+                        <label>$INFO[Window.Property(Revenue),$,]</label>
                     </control>
                 </control>
             </control>  
@@ -286,13 +313,14 @@
             <include>Home_Iconbar_Logo</include>
             <control type="group">
                 <control type="list" id="300">
+                    <onleft>9504</onleft>
+                    <onright condition="Control.IsVisible(1000)">1000</onright>
                     <onright condition="Control.IsVisible(10052)">150</onright>
-                    <onright condition="Control.IsVisible(10053)">250</onright>
                     <onright condition="Control.IsVisible(350)">350</onright>
-                    <onright condition="Control.IsVisible(550)">550</onright>
+                    <onright condition="Control.IsVisible(750)">750</onright>
                     <include>Home_OnFocus</include>
                     <include>Home_VideoInfo_Layout</include>
-                    <include>Home_MainMenu_ExtInfoItems2</include>
+                    <include>Home_MainMenu_ExtInfoItems</include>
                 </control>
                 <control type="group">
                     <top>view_top</top>
@@ -337,57 +365,107 @@
             </control>
         </control>
 
+        <control type="group">
+            <visible>Control.HasFocus(9504)</visible>
+            <include>Animation_FadeIn</include>
+            <include>Animation_FadeOut</include>
+            <control type="image">
+                <texture background="true">$VAR[Global_Background_Image_Var]</texture>
+                <aspectratio>scale</aspectratio>
+            </control>
+        </control>
+
+        <control type="button" id="9504">
+            <onleft>300</onleft>
+            <onup>300</onup>
+            <ondown>300</ondown>
+            <onright>300</onright>
+            <onclick>SetFocus(300)</onclick>
+            <onback>300</onback>
+            <include>Defs_Hidden_Button</include>
+        </control>
+
         <include>Object_PlotOverlay</include>
 
-        <!-- Hidden Buttons -->
-        <!-- Movies -->
-        <control type="button" id="9001">
-            <label>$ADDON[script.extendedinfo 32010]</label>
-            <onclick>SetProperty(VideoInfo_InfoLine,$INFO[Window.Property(label),$ADDON[script.extendedinfo 32010] (,)],Home)</onclick>
-            <onclick>SetProperty(FocusedList,150,Home)</onclick>
-            <onclick>SetFocus(150)</onclick>
-            <onfocus>ClearProperty(content)</onfocus>
+        <control type="button" id ="120">
+            <description>Browse</description>
+            <label>21385</label>
             <include>Defs_Hidden_Button</include>
+            <visible>!String.IsEmpty(Window.Property(DBID)) + String.IsEqual(Window.Property(Type),tvshow)</visible>
+            <visible>String.IsEmpty(Window(home).Property(globalsearch))</visible>
+            <visible>!Window.IsVisible(VideoFullScreen.xml)</visible>
+        </control>
+
+        <control type="button" id ="9002">
+            <description>Cast</description>
+            <label>206</label>
+            <include>Defs_Hidden_Button</include>
+            <onclick>SetProperty(FocusedList,1000,Home)</onclick>
+            <onclick>SetProperty(VideoInfo_InfoLine,$INFO[Window.Property(label),$LOCALIZE[206] (,)],Home)</onclick>
+            <onclick>SetFocus(1000)</onclick>
+            <!-- <enable>Integer.IsGreater(Container(1000).NumItems,0)</enable> -->
+        </control>
+        
+        <control type="button" id ="9003">
+            <description>Similar</description>
+            <label>31206</label>
+            <include>Defs_Hidden_Button</include>
+            <onclick>SetProperty(FocusedList,150,Home)</onclick>
+            <onclick>SetProperty(VideoInfo_InfoLine,$INFO[Window.Property(label),$LOCALIZE[31206] (,)],Home)</onclick>
+            <onclick>SetFocus(150)</onclick>
             <enable>Integer.IsGreater(Container(10052).NumItems,0)</enable>
         </control>
         
-        <!-- TvShows -->
-        <control type="button" id="9002">
-            <label>20343</label>
-            <onclick>SetProperty(VideoInfo_InfoLine,$INFO[Window.Property(label),$LOCALIZE[20343] (,)],Home)</onclick>
-            <onclick>SetProperty(FocusedList,250,Home)</onclick>
-            <onclick>SetFocus(250)</onclick>
-            <onfocus>ClearProperty(content)</onfocus>
+        <control type="button" id ="9004">
+            <description>Youtube</description>
+            <label>31141</label>
             <include>Defs_Hidden_Button</include>
-            <enable>Integer.IsGreater(Container(10053).NumItems,0)</enable>
-        </control>
-
-        <!-- YouTube -->
-        <control type="button" id="9003">
-            <label>$ADDON[script.extendedinfo 32118]</label>
-            <onclick>SetProperty(VideoInfo_InfoLine,$INFO[Window.Property(label),$ADDON[script.extendedinfo 32118] (,)],Home)</onclick>
             <onclick>SetProperty(FocusedList,350,Home)</onclick>
+            <onclick>SetProperty(VideoInfo_InfoLine,$INFO[Window.Property(label),$LOCALIZE[31141] (,)],Home)</onclick>
             <onclick>SetFocus(350)</onclick>
-            <onfocus>ClearProperty(content)</onfocus>
-            <include>Defs_Hidden_Button</include>
             <enable>Integer.IsGreater(Container(350).NumItems,0)</enable>
         </control>
+        
 
-        <!-- As Crew -->
-        <control type="button" id="9004">
+        <control type="button" id ="9005">
+            <description>Crew</description>
             <label>$ADDON[script.extendedinfo 32115]</label>
-            <onclick>SetProperty(VideoInfo_InfoLine,$INFO[Window.Property(label),$ADDON[script.extendedinfo 32115] (,)],Home)</onclick>
-            <onclick>SetProperty(FocusedList,550,Home)</onclick>
-            <onclick>SetFocus(550)</onclick>
-            <onfocus>ClearProperty(content)</onfocus>
             <include>Defs_Hidden_Button</include>
-            <enable>Integer.IsGreater(Container(550).NumItems,0)</enable>
+            <onclick>SetProperty(FocusedList,750,Home)</onclick>
+            <onclick>SetProperty(VideoInfo_InfoLine,$INFO[Window.Property(label), (,)],Home)</onclick>
+            <onclick>SetFocus(750)</onclick>
+            <enable>Integer.IsGreater(Container(750).NumItems,0)</enable>
+        </control>
+
+        <control type="button" id ="9009">
+            <description>Add to trakt</description>
+            <include>Defs_Hidden_Button</include>
+            <onclick>XBMC.RunPlugin(plugin://plugin.video.trakt_list_manager/movies/add?title=$INFO[Window.Property(label)])</onclick>
+            <label>Trakt</label>
+            <visible>System.HasAddon(plugin.video.trakt_list_manager)</visible>
+        </control>
+
+        <control type="button" id ="445">
+            <description>Manage</description>
+            <include>Defs_Hidden_Button</include>
+            <label>$ADDON[script.extendedinfo 32133]</label>
         </control>
 
         <!-- Dummy Lists -->
+        <control type="list" id="250"><visible>false</visible></control>
         <control type="list" id="450"><visible>false</visible></control>
+        <control type="list" id="550"><visible>false</visible></control>
         <control type="list" id="650"><visible>false</visible></control>
-        <control type="list" id="750"><visible>false</visible></control>
+        <control type="list" id="1050"><visible>false</visible></control>
+        <control type="list" id="1150"><visible>false</visible></control>
+        <control type="list" id="1250"><visible>false</visible></control>
+        <control type="list" id="1350"><visible>false</visible></control>
+        <control type="list" id="1450"><visible>false</visible></control>
+
+        <!-- Genres -->
+        <control type="list" id="850"><visible>false</visible></control>
+        <!-- Keywords -->
+        <control type="list" id="950"><visible>false</visible></control>
     </controls>
 
 </window>

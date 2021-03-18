@@ -9,7 +9,7 @@
             <include>Topbar_TextDetails</include>
         </control>
         <control type="group">
-            <visible>!Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + !Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)</visible>
+            <visible>!Window.IsVisible(script-embuary-video.xml) + !Window.IsVisible(script-embuary-person.xml)</visible>
     
             <control type="group">
                 <include>Animation_Right_Delay</include>

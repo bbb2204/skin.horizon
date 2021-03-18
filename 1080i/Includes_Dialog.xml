@@ -229,7 +229,7 @@
         <param name="content" default="true" />
         <param name="header" default="$INFO[Window(Home).Property(CustomInfoList.Title)]" />
         <param name="cancelaction" default="Close" />
-        <param name="visible" default="!Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + !Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)" />
+        <param name="visible" default="!Window.IsVisible(script-embuary-video.xml) + !Window.IsVisible(script-embuary-person.xml)" />
         <param name="label2" default="ListItem.Label2" />
         <definition>
             <control type="group">

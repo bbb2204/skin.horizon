@@ -593,8 +593,8 @@
         <definition>
             <control type="grouplist">
                 <visible>!Skin.HasSetting(furniture.flags)</visible>
-                <visible>!Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml)</visible>
-                <visible>!Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)</visible>
+                <visible>!Window.IsVisible(script-embuary-video.xml)</visible>
+                <visible>!Window.IsVisible(script-embuary-person.xml)</visible>
                 <visible>!String.IsEqual(ListItem.Label,..)</visible>
                 <animation effect="fade" start="0" end="100" delay="30" time="1" reversible="false">Visible</animation>
                 <right>30</right>
@@ -988,8 +988,8 @@
                     <align>right</align>
                     <font>font_tiny</font>
                     <label>$INFO[Window(Home).Property(SkinHelper.ListItem.IMDB.Top250),#,]</label>
-                    <visible>!Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)</visible>
-                    <visible>!Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml)</visible>
+                    <visible>!Window.IsVisible(script-embuary-person.xml)</visible>
+                    <visible>!Window.IsVisible(script-embuary-video.xml)</visible>
                     <visible>Integer.IsGreater(Window(home).Property(SkinHelper.ListItem.IMDB.Top250),0)</visible>
                     <visible>$PARAM[imdb]</visible>
                     <visible>$PARAM[top250]</visible>

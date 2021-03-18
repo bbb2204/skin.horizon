@@ -1650,3 +1650,8 @@ msgstr ""
 msgctxt "#31349"
 msgid "Initialising Skin"
 msgstr ""
+
+#: /1080i/script-embuary-person.xml
+msgctxt "#31350"
+msgid "Filmography"
+msgstr ""

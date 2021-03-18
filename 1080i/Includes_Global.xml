@@ -92,7 +92,7 @@
 
             <!-- Texture Overlay -->
             <control type="group">
-                <visible>!Window.IsVisible(Home) | [Window.IsVisible(Home) + [String.IsEqual(Container(300).ListItem.Property(widget),Weather) | !String.IsEmpty(Container(300).ListItem.Property(widgetPath)) | !String.IsEmpty(Container(300).ListItem.Property(widgetPath.Widget1)) | !String.IsEmpty(Container(300).ListItem.Property(widgetPath.Widget2)) | !String.IsEmpty(Container(300).ListItem.Property(widgetPath.Widget3)) | !String.IsEmpty(Container(300).ListItem.Property(widgetPath.Widget4)) | !String.IsEmpty(Container(300).ListItem.Property(widgetPath.Widget5)) | !String.IsEmpty(Container(300).ListItem.Property(widgetPath.Widget6)) | !String.IsEmpty(Container(300).ListItem.Property(widgetPath.Widget7)) | !String.IsEmpty(Container(300).ListItem.Property(widgetPath.Widget8)) | [String.IsEmpty(Container(300).ListItem.Property(Background)) + String.IsEmpty(Container(300).ListItem.Property(backgroundPlaylist)) + String.IsEmpty(Skin.String(home.slideshowpath))] | [String.IsEqual(Container(300).ListItem.Property(hasSubmenu),True) + !Skin.HasSetting(DisableWidgetCategories)]]] | [Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml) | Window.IsVisible(DialogAddonInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)]</visible>
+                <visible>!Window.IsVisible(Home) | [Window.IsVisible(Home) + [String.IsEqual(Container(300).ListItem.Property(widget),Weather) | !String.IsEmpty(Container(300).ListItem.Property(widgetPath)) | !String.IsEmpty(Container(300).ListItem.Property(widgetPath.Widget1)) | !String.IsEmpty(Container(300).ListItem.Property(widgetPath.Widget2)) | !String.IsEmpty(Container(300).ListItem.Property(widgetPath.Widget3)) | !String.IsEmpty(Container(300).ListItem.Property(widgetPath.Widget4)) | !String.IsEmpty(Container(300).ListItem.Property(widgetPath.Widget5)) | !String.IsEmpty(Container(300).ListItem.Property(widgetPath.Widget6)) | !String.IsEmpty(Container(300).ListItem.Property(widgetPath.Widget7)) | !String.IsEmpty(Container(300).ListItem.Property(widgetPath.Widget8)) | [String.IsEmpty(Container(300).ListItem.Property(Background)) + String.IsEmpty(Container(300).ListItem.Property(backgroundPlaylist)) + String.IsEmpty(Skin.String(home.slideshowpath))] | [String.IsEqual(Container(300).ListItem.Property(hasSubmenu),True) + !Skin.HasSetting(DisableWidgetCategories)]]] | [Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml) | Window.IsVisible(DialogAddonInfo.xml) | Window.IsVisible(script-embuary-video.xml) | Window.IsVisible(script-embuary-person.xml)]</visible>
                 <include>Animation_FadeInOut</include>
                 <control type="image">
                     <texture colordiffuse="$VAR[Global_FanartDim]">common/white.png</texture>
@@ -150,7 +150,7 @@
     <variable name="Global_Background_Image">
         <value condition="!Window.IsVisible(home) + Skin.HasSetting(global.hidefanart) + !String.IsEmpty(Skin.String(fanart.fallback))">$INFO[Skin.String(fanart.fallback)]</value>
         <value condition="Skin.HasSetting(NoFanart)">$VAR[Global_Background_Image_NoFanart]</value>
-        <value condition="!String.IsEmpty(Window(home).Property(ImageFilterFIVE)) + Skin.HasSetting(EnableBlur) + [!Skin.HasSetting(OnlyBlurInfo) | [Skin.HasSetting(OnlyBlurInfo) + [Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml) | Window.IsVisible(DialogAddonInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)]]]">$INFO[Window(home).Property(ImageFilterFIVE)]</value>
+        <value condition="!String.IsEmpty(Window(home).Property(ImageFilterFIVE)) + Skin.HasSetting(EnableBlur) + [!Skin.HasSetting(OnlyBlurInfo) | [Skin.HasSetting(OnlyBlurInfo) + [Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml) | Window.IsVisible(DialogAddonInfo.xml) | Window.IsVisible(script-embuary-video.xml) | Window.IsVisible(script-embuary-person.xml)]]]">$INFO[Window(home).Property(ImageFilterFIVE)]</value>
         <value>$VAR[Global_Background_Image_Var]</value>
     </variable>
 
@@ -158,11 +158,11 @@
         <value condition="Skin.HasSetting(NoFanart)">$VAR[Global_Background_Image_NoFanart]</value>
         <!-- Next up -->
         <value condition="Window.IsVisible(script-nextup-notification-PostPlayInfo.xml)">$INFO[Window.Property(background)]</value>
-        <!-- Extended Info -->
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + !String.IsEmpty(Window.Property(fanart_original))">$INFO[Window.Property(fanart_original)]</value>
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) + !String.IsEmpty(Skin.String(fanart.fallback))">$INFO[Skin.String(fanart.fallback)]</value>
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)">null.png</value>
-        <value condition="Window.IsVisible(script-script.extendedinfo-VideoList.xml) + !String.IsEmpty(ListItem.Property(Fanart_Image))">$INFO[ListItem.Property(Fanart_Image)]</value>
+        <!-- Embuary Info -->
+        <value condition="Window.IsVisible(script-embuary-video.xml) + !String.IsEmpty(Container(10051).ListItem.Art(fanart))">$INFO[Container(10051).ListItem.Art(fanart)]</value>
+        <value condition="Window.IsVisible(script-embuary-video.xml) | Window.IsVisible(script-embuary-person.xml) + !String.IsEmpty(Skin.String(fanart.fallback))">$INFO[Skin.String(fanart.fallback)]</value>
+        <value condition="Window.IsVisible(script-embuary-video.xml) | Window.IsVisible(script-embuary-person.xml)">null.png</value>
+        <value condition="[Control.IsVisible(10052) | Control.IsVisible(10053)] + !String.IsEmpty(Container.ListItem.Art(fanart))">$INFO[Container.ListItem.Art(fanart)]</value>
 
         <!-- Next Aired -->
         <value condition="[Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml)] + [Control.HasFocus(200) | Control.HasFocus(8200)] + !String.IsEmpty(Container(200).ListItem.Property(Fanart))">$INFO[Container(200).ListItem.Property(Fanart)]</value>

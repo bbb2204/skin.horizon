@@ -13,7 +13,7 @@
     <controls>
 
         <control type="group">
-            <visible>!Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + !Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)</visible>
+            <visible>!Window.IsVisible(script-embuary-video.xml) + !Window.IsVisible(script-embuary-person.xml)</visible>
             <height>topbar_height</height>
             <include>Topbar_TextDetails</include>
         </control>
@@ -22,7 +22,7 @@
 
         <control type="group">
             <control type="group">
-                <visible>!Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + !Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)</visible>
+                <visible>!Window.IsVisible(script-embuary-video.xml) + !Window.IsVisible(script-embuary-person.xml)</visible>
                 <include>Animation_Right_Delay</include>
                 <top>view_top</top>
                 <include>Animation_Home_Textbar_Slideover_Library</include>
@@ -115,8 +115,8 @@
                     <control type="list" id="50">
                         <visible allowhiddenfocus="true">String.IsEqual(Window(Home).Property(FocusedList),50) | Control.HasFocus(50) | String.IsEmpty(Window(Home).Property(FocusedList))</visible>
                         <include>Animation_FadeInOut</include>
-                        <ondown condition="System.hasAddon(script.extendedinfo) + Control.HasFocus(50)">RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).ListItem.Label])</ondown>
-                        <ondown condition="!System.hasAddon(script.extendedinfo)">InstallAddon(script.extendedinfo)</ondown>
+                        <ondown condition="System.hasAddon(script.embuary.info) + Control.HasFocus(50)">RunScript(script.embuary.info,call=person,query='"$INFO[Container(50).ListItem.Label]"')</ondown>
+                        <ondown condition="!System.hasAddon(script.embuary.info)">InstallAddon(script.embuary.info)</ondown>
                         <onleft>300</onleft>
                         <onright>noop</onright>
                         <include>View_Info_Movement</include>
@@ -171,7 +171,7 @@
                             <param name="id" value="9502" />
                             <param name="infolabel" value="false" />
                         </include>
-                        <content>plugin://script.extendedinfo?info=personmovies&amp;&amp;person=$INFO[ListItem.Director]</content>
+                        <content>plugin://script.embuary.helper/?info=getitemsbyactor&amp;label=$INFO[ListItem.Director]&amp;content=movie</content>
                     </control>
                     <include content="Dialog_VideoInfo_BusyIndicator">
                         <param name="id" value="9502" />
@@ -515,7 +515,7 @@
 
             </control>
             <control type="group">
-                <visible>!Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + !Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)</visible>
+                <visible>!Window.IsVisible(script-embuary-video.xml) + !Window.IsVisible(script-embuary-person.xml)</visible>
                 <control type="group">
                     <left>home_left</left>
                     <width>320</width>
@@ -702,9 +702,9 @@
         <control type="button" id="9005">
             <label>$LOCALIZE[29915]</label>
             <include>Defs_Hidden_Button</include>
-            <onclick condition="String.IsEqual(ListItem.DbType,movie)">RunScript(script.extendedinfo,info=extendedinfo,name=$INFO[ListItem.Title],imdb_id=$INFO[ListItem.IMDBNumber])</onclick>
-            <onclick condition="String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,episode)">RunScript(script.extendedinfo,info=extendedtvinfo,name=$INFO[ListItem.TvShowTitle])</onclick>
-            <visible>System.hasAddon(script.extendedinfo) + [String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,episode)]</visible>
+            <onclick condition="String.IsEqual(ListItem.DbType,movie)">RunScript(script.embuary.info,call=movie,dbid=ListItem.DBID)</onclick>
+            <onclick condition="String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,episode)">RunScript(script.embuary.info,call=tv,query='"$INFO[ListItem.TvShowTitle]"')</onclick>
+            <visible>System.hasAddon(script.embuary.info) + [String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,episode)]</visible>
         </control>
 
         <control type="button" id="9006">
