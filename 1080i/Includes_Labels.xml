@@ -357,7 +357,7 @@
     </variable>
 
     <variable name="Label_InfoLine">
-        <value condition="Window.IsVisible(script-embuary-person.xml)">$INFO[Window.Property(AlsoKnownAs),[COLOR=main_fg_100],[/COLOR]]</value>
+        <value condition="Window.IsVisible(script-embuary-person.xml)">$INFO[Container(10051).ListItem.Property(Known_For_Department),Known for: [COLOR=main_fg_100],[/COLOR]]</value>
         <value condition="Window.IsVisible(script-embuary-video.xml)">$INFO[Container(10051).ListItem.Year,[COLOR=main_fg_100],[/COLOR]]$INFO[Container(10051).ListItem.MPAA,  |  [COLOR=main_fg_100],[/COLOR]]$INFO[Container(10051).ListItem.Duration,  |  [COLOR=main_fg_100], $LOCALIZE[31102][/COLOR]]$INFO[Container(10051).ListItem.Rating,  |  [COLOR=main_fg_100],[/COLOR]]</value>
 
         <value condition="Container.Content(movies)">$INFO[ListItem.Year,[COLOR=main_fg_100],[/COLOR]  |  ]$VAR[Label_MPAA,[COLOR=main_fg_100],[/COLOR]  |  ]$VAR[Label_Duration,[COLOR=main_fg_100],[/COLOR]  |  ]$VAR[Label_EndTime,[COLOR=main_fg_100]$LOCALIZE[31106] ,[/COLOR]  |  ]$VAR[Label_Rating,[COLOR=main_fg_100],[/COLOR]]</value>

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Foundation -->
+<!-- Embuary Info Person Details -->
 <window type="window">
-    <defaultcontrol always="true">10052</defaultcontrol>
+    <!-- Default control is movies as cast list -->
+	<defaultcontrol always="true">10052</defaultcontrol>
     <onload>ClearProperty(FocusedList,Home)</onload>
     <onunload>ClearProperty(FocusedList,Home)</onunload>
     <onunload condition="!Player.HasVideo + Window.IsVisible(VideoOSD.xml)">SetFocus(50)</onunload>
     <controls>
         
-		<!-- Storage container for the item details -->
+		<!-- Hidden container for the item details -->
 		<control type="list" id="10051">
 			<top>-3000</top>
 			<left>-3000</left>
@@ -17,29 +18,21 @@
 			<focusedlayout/>
 		</control>
 		
-		<control type="image">
-            <width>1920</width>
-            <height>1080</height>
-            <texture>common/gradient-solid.png</texture>
-            <aspectratio>scale</aspectratio>
-        </control>
-		
-<!--        <control type="group">
+        <control type="group">
             <height>topbar_height</height>
             <include>Topbar_TextDetails</include>
-        </control> -->
+        </control>
         <control type="group">
             <width>view_left</width>
-<!--            <include>Animation_Home_Textbar_Slideover_Library</include> -->
+            <include>Animation_Home_Textbar_Slideover_Library</include>
             <include>View_Group</include>
-<!--            <include>Animation_Left_Delay</include> -->
-            
-			
-			<control type="image">
+            <include>Animation_Left_Delay</include>
+            <control type="image">
                 <include>Defs_Shadow_Opaque</include>
                 <texture colordiffuse="AAffffff">common/gradient-solid.png</texture>
             </control>
-            <include content="Object_BigPoster">
+            <!-- Person poster -->
+			<include content="Object_BigPoster">
                 <param name="discart" value="false" />
                 <param name="variable" value="$INFO[Container(10051).ListItem.Art(thumb)]" />
             </include>
@@ -47,9 +40,9 @@
         </control>
 
         <control type="group">
-<!--            <include>Animation_Right_Delay</include> -->
+            <include>Animation_Right_Delay</include>
             <top>view_top</top>
-<!--            <include>Animation_Home_Textbar_Slideover_Library</include> -->
+            <include>Animation_Home_Textbar_Slideover_Library</include>
             <!-- Plot -->
             <control type="group">
                 <left>info_left</left>
