@@ -515,7 +515,7 @@
                         <control type="image">
                             <aspectratio aligny="center">scale</aspectratio>
                             <texture background="true" fallback="DefaultAddonImages.png">$PARAM[variable]</texture>
-                            <visible>Window.IsVisible(script-embuary-person.xml)</visible>
+                            <visible>[Window.IsVisible(script-embuary-person.xml) | Window.IsVisible(script-embuary-video.xml)]</visible>
                         </control>
 						<control type="image">
                             <aspectratio aligny="center">scale</aspectratio>

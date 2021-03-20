@@ -405,19 +405,19 @@
                 <visible>Control.IsEnabled(9005)</visible>
             </item>
             <!-- Trakt -->
-            <item>
+<!--            <item>
                 <label>$INFO[Control.GetLabel(9009)]</label>
                 <icon>special://skin/extras/icons/addtile.png</icon>
                 <onclick>SendClick(9009)</onclick>
                 <visible>Control.IsEnabled(9009)</visible>
-            </item>
+            </item> -->
             <!-- Manage -->
-            <item>
+<!--            <item>
                 <label>$INFO[Control.GetLabel(445)]</label>
                 <icon>special://skin/extras/icons/configure.png</icon>
                 <onclick>SendClick(445)</onclick>
                 <visible>Control.IsEnabled(445)</visible>
-            </item>
+            </item> -->
         </content>
     </include>
 
