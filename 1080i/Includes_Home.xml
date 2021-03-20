@@ -380,6 +380,15 @@
 				<onclick>Dialog.Close(all)</onclick>
                 <visible>Control.IsVisible(9008)</visible>
             </item>
+			<!-- Browse -->
+			<item>
+                <label>$INFO[Control.GetLabel(9009)]</label>
+                <icon>special://skin/extras/icons/play3.png</icon>
+				<onclick condition="!Window.IsVisible(MyVideoNav.xml)">ActivateWindow(videos,videodb://tvshows/titles/$INFO[Container(10051).ListItem.DBID]/,return)</onclick>
+				<onclick condition="Window.IsVisible(MyVideoNav.xml)">Container.Update(videodb://tvshows/titles/$INFO[Container(10051).ListItem.DBID]/)</onclick>
+				<onclick>Dialog.Close(all)</onclick>
+                <visible>Control.IsVisible(9009)</visible>
+            </item>
 			<!-- Cast -->
             <item>
                 <label>$INFO[Control.GetLabel(9002)]</label>

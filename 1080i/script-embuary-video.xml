@@ -337,7 +337,7 @@
                     <control type="group">
                         <left>home_icon</left>
                         <width>6</width>     
-                        <visible>Control.IsVisible(9008)</visible>
+                        <visible>Control.IsVisible(9008) | Control.IsVisible(9009)</visible>
                         <control type="image">
                             <texture colordiffuse="$VAR[ColorHighlight]">common/white.png</texture>
                         </control>
@@ -364,7 +364,25 @@
 						<onclick>Dialog.Close(all)</onclick>
                         <visible>String.IsEmpty(Window(home).Property(globalsearch))</visible>
                         <visible>!Window.IsVisible(VideoFullScreen.xml)</visible>
-<!--                        <visible allowhiddenfocus="true">Control.HasFocus(9008)</visible> -->
+                        <texturenofocus colordiffuse="00ffffff">special://skin/extras/icons/play3.png</texturenofocus>
+                        <texturefocus colordiffuse="Selected">special://skin/extras/icons/play3.png</texturefocus>
+                    </control>
+					<control type="button" id="9009">
+                        <description>Browse button</description>
+                        <label>21385</label>
+                        <width>home_icon</width>
+                        <height>home_icon</height>
+                        <font/>
+                        <onright>SetFocus(10052,0)</onright>
+                        <onleft>SetFocus(300,0)</onleft>
+                        <onup>SetFocus(300,0)</onup>
+                        <ondown>SetFocus(300,0)</ondown>
+                        <visible>!String.IsEmpty(Container(10051).ListItem.DBID) + String.IsEqual(Container(10051).ListItem.Property(call),tv)</visible>
+						<onclick condition="!Window.IsVisible(MyVideoNav.xml)">ActivateWindow(videos,videodb://tvshows/titles/$INFO[Container(10051).ListItem.DBID]/,return)</onclick>
+				        <onclick condition="Window.IsVisible(MyVideoNav.xml)">Container.Update(videodb://tvshows/titles/$INFO[Container(10051).ListItem.DBID]/)</onclick>
+						<onclick>Dialog.Close(all)</onclick>
+                        <visible>String.IsEmpty(Window(home).Property(globalsearch))</visible>
+                        <visible>!Window.IsVisible(VideoFullScreen.xml)</visible>
                         <texturenofocus colordiffuse="00ffffff">special://skin/extras/icons/play3.png</texturenofocus>
                         <texturefocus colordiffuse="Selected">special://skin/extras/icons/play3.png</texturefocus>
                     </control>
