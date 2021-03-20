@@ -5,8 +5,9 @@
     <onload>Dialog.Close(1112)</onload>
     <onload>ClearProperty(FocusedList,Home)</onload>
     <onunload>ClearProperty(FocusedList,Home)</onunload>
-    <onunload condition="!Player.HasVideo + Window.IsVisible(VideoOSD.xml)">SetFocus(50)</onunload>
-    <controls>
+    <onunload condition="!Player.HasVideo + Window.IsVisible(VideoOSD.xml)">SetFocus(50)</onunload>	
+	
+	<controls>
 
         <!-- Hidden container for the item details -->
 		<control type="list" id="10051">
@@ -78,7 +79,7 @@
                 </control>
             </control>
 
-            <!-- Cast / Directed By -->
+            <!-- Cast / Similar / YouTube / Crew -->
             <control type="group" id="9000">
                 <top>230</top>
                 <left>info_left</left>
@@ -307,8 +308,6 @@
             </control>  
         </control>
 
-
-
         <control type="group">
             <left>home_left</left>
             <width>320</width>
@@ -338,7 +337,7 @@
                     <control type="group">
                         <left>home_icon</left>
                         <width>6</width>     
-                        <visible>Control.HasFocus(8)</visible>
+                        <visible>Control.IsVisible(9008)</visible>
                         <control type="image">
                             <texture colordiffuse="$VAR[ColorHighlight]">common/white.png</texture>
                         </control>
@@ -350,20 +349,22 @@
                             <include>Home_Separator</include>
                         </control>
                     </control>
-                    <control type="button" id="8">
+                    <control type="button" id="9008">
                         <description>Play button</description>
                         <label>208</label>
                         <width>home_icon</width>
                         <height>home_icon</height>
                         <font/>
-                        <onright>SetFocus(50,0)</onright>
+                        <onright>SetFocus(10052,0)</onright>
                         <onleft>SetFocus(300,0)</onleft>
                         <onup>SetFocus(300,0)</onup>
                         <ondown>SetFocus(300,0)</ondown>
-                        <visible>!String.IsEmpty(Container(10051).ListItem.DBID) + !String.IsEqual(Window.Property(Type),tvshow)</visible>
+                        <visible>!String.IsEmpty(Container(10051).ListItem.DBID) + !String.IsEmpty(Container(10051).ListItem.Property(file)) + !String.IsEqual(Container(10051).ListItem.Property(call),tv)</visible>
+						<onclick>PlayMedia($INFO[Container(10051).ListItem.Property(file)])</onclick>
+						<onclick>Dialog.Close(all)</onclick>
                         <visible>String.IsEmpty(Window(home).Property(globalsearch))</visible>
                         <visible>!Window.IsVisible(VideoFullScreen.xml)</visible>
-                        <visible allowhiddenfocus="true">Control.HasFocus(8)</visible>
+<!--                        <visible allowhiddenfocus="true">Control.HasFocus(9008)</visible> -->
                         <texturenofocus colordiffuse="00ffffff">special://skin/extras/icons/play3.png</texturenofocus>
                         <texturefocus colordiffuse="Selected">special://skin/extras/icons/play3.png</texturefocus>
                     </control>
@@ -413,7 +414,6 @@
             <onclick>SetProperty(FocusedList,10052,Home)</onclick>
             <onclick>SetProperty(VideoInfo_InfoLine,$INFO[Container(10051).ListItem.Label,$LOCALIZE[206] (,)],Home)</onclick>
             <onclick>SetFocus(10052)</onclick>
-            <!-- <enable>Integer.IsGreater(Container(1000).NumItems,0)</enable> -->
         </control>
         
         <control type="button" id ="9003">
@@ -435,7 +435,6 @@
             <onclick>SetFocus(10054)</onclick>
             <enable>Integer.IsGreater(Container(10054).NumItems,0)</enable>
         </control>
-        
 
         <control type="button" id ="9005">
             <description>Crew</description>
@@ -446,20 +445,6 @@
             <onclick>SetFocus(10056)</onclick>
             <enable>Integer.IsGreater(Container(10056).NumItems,0)</enable>
         </control>
-
-<!--        <control type="button" id ="9009">
-            <description>Add to trakt</description>
-            <include>Defs_Hidden_Button</include>
-            <onclick>RunPlugin(plugin://plugin.video.trakt_list_manager/movies/add?title=$INFO[Container(10051).ListItem.Label])</onclick>
-            <label>Trakt</label>
-            <visible>System.HasAddon(plugin.video.trakt_list_manager)</visible>
-        </control> -->
-
-<!--        <control type="button" id ="445">
-            <description>Manage</description>
-            <include>Defs_Hidden_Button</include>
-            <label>$ADDON[script.extendedinfo 32133]</label>
-        </control> -->
 
     </controls>
 

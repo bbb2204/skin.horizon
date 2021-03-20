@@ -302,6 +302,7 @@
         <value condition="Window.IsVisible(script-embuary-person.xml) + Control.IsVisible(10053)">$INFO[Container(10053).ListItem.Label]</value>
         <value condition="Window.IsVisible(script-embuary-video.xml) + Control.IsVisible(10052)">$INFO[Container(10052).ListItem.Label]</value>
         <value condition="Window.IsVisible(script-embuary-video.xml) + Control.IsVisible(10053)">$INFO[Container(10053).ListItem.Label]</value>
+		<value condition="Window.IsVisible(script-embuary-video.xml) + Control.IsVisible(10054)">$INFO[Container(10054).ListItem.Label]</value>
         <value condition="Window.IsVisible(script-embuary-video.xml) + Control.IsVisible(10056)">$INFO[Container(10056).ListItem.Label]</value>
         <value condition="[Control.HasFocus(50) | String.IsEqual(Window(Home).Property(FocusedList),50)] + !Container(50).IsUpdating">$INFO[Container(50).ListItem.Label]</value>
         <value condition="[Control.HasFocus(9502) | String.IsEqual(Window(Home).Property(FocusedList),9502)] + !Container(9502).IsUpdating">$INFO[Container(9502).ListItem.Label]</value>

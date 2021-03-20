@@ -1332,7 +1332,7 @@ msgstr ""
 
 #: /1080i/Includes_Home.xml
 msgctxt "#31285"
-msgid "Extended info"
+msgid "TMDb info"
 msgstr ""
 
 msgctxt "#31286"

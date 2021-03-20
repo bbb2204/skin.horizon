@@ -130,7 +130,8 @@
                     <include content="Dialog_VideoInfo_BusyIndicator">
                         <param name="id" value="50" />
                     </include>
-                    <control type="list" id="9501">
+                    <!-- Next Up episodes -->
+					<control type="list" id="9501">
                         <visible allowhiddenfocus="true">String.IsEqual(Window(Home).Property(FocusedList),9501) | Control.HasFocus(9501)</visible>
                         <orientation>horizontal</orientation>
                         <onleft>300</onleft>
@@ -156,6 +157,7 @@
                     <include content="Dialog_VideoInfo_BusyIndicator">
                         <param name="id" value="9501" />
                     </include>
+					<!-- Movies by Director -->
                     <control type="list" id="9502">
                         <visible allowhiddenfocus="true">String.IsEqual(Window(Home).Property(FocusedList),9502) | Control.HasFocus(9502)</visible>
                         <orientation>horizontal</orientation>
@@ -166,17 +168,18 @@
                         <onfocus>SetProperty(FocusedList,9502,Home)</onfocus>
                         <onback>ClearProperty(FocusedList)</onback>
                         <onback>50</onback>
+						<onclick>RunScript(script.embuary.info,call=movie,query='"$INFO[Container(9502).ListItem.Label]"',year=$INFO[Container(9502).ListItem.Year])</onclick>
                         <animation effect="fade" start="100" end="0" time="0" condition="Container(9502).IsUpdating">Conditional</animation>
                         <include content="View_Actor_Layout">
                             <param name="id" value="9502" />
                             <param name="infolabel" value="false" />
                         </include>
-                        <content>plugin://script.embuary.helper/?info=getitemsbyactor&amp;label=$INFO[ListItem.Director]&amp;content=movie</content>
+                        <content>plugin://script.embuary.helper/?info=getdirectedby&amp;dbid=$INFO[ListItem.DBID]</content>
                     </control>
                     <include content="Dialog_VideoInfo_BusyIndicator">
                         <param name="id" value="9502" />
                     </include>
-                    <!-- <control type="list" id="9503">
+                    <control type="list" id="9503">
                         <visible allowhiddenfocus="true">String.IsEqual(Window(Home).Property(FocusedList),9503) | Control.HasFocus(9503)</visible>
                         <orientation>horizontal</orientation>
                         <onleft>300</onleft>
@@ -186,16 +189,17 @@
                         <onfocus>SetProperty(FocusedList,9503,Home)</onfocus>
                         <onback>ClearProperty(FocusedList)</onback>
                         <onback>50</onback>
-                        <animation effect="fade" start="100" end="0" time="0" condition="Container(9503).IsUpdating">Conditional</animation>
+                        <onclick>RunScript(script.embuary.info,call=movie,query='"$INFO[Container(9503).ListItem.Label]"',year=$INFO[Container(9503).ListItem.Year])</onclick>
+						<animation effect="fade" start="100" end="0" time="0" condition="Container(9503).IsUpdating">Conditional</animation>
                         <include content="View_Actor_Layout">
                             <param name="id" value="9503" />
                             <param name="infolabel" value="false" />
                         </include>
-                        <content>plugin://script.skin.helper.widgets/?action=similar&amp;mediatype=movies&amp;imdbid=$INFO[ListItem.IMDBNumber]</content>
+                        <content>plugin://script.embuary.helper/?info=getsimilar&amp;dbid=$INFO[ListItem.DBID]&amp;type=movie</content>
                     </control>
                     <include content="Dialog_VideoInfo_BusyIndicator">
                         <param name="id" value="9503" />
-                    </include> -->
+                    </include>
                 </control>
 
                 <control type="grouplist">
@@ -702,9 +706,13 @@
         <control type="button" id="9005">
             <label>$LOCALIZE[29915]</label>
             <include>Defs_Hidden_Button</include>
-            <onclick condition="String.IsEqual(ListItem.DbType,movie)">RunScript(script.embuary.info,call=movie,dbid=ListItem.DBID)</onclick>
+            <onclick condition="String.IsEqual(ListItem.DbType,movie)">RunScript(script.embuary.info,call=movie,dbid=$INFO[ListItem.DBID])</onclick>
             <onclick condition="String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,episode)">RunScript(script.embuary.info,call=tv,query='"$INFO[ListItem.TvShowTitle]"')</onclick>
             <visible>System.hasAddon(script.embuary.info) + [String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,episode)]</visible>
+			<ondown>300</ondown>
+			<onup>300</onup>
+			<onleft>300</onleft>
+			<onright>300</onright>
         </control>
 
         <control type="button" id="9006">
@@ -719,21 +727,8 @@
 
         <control type="button" id ="10">
             <description>Artwork (Get Thumb)</description>
-            <label>$LOCALIZE[13405]</label>
+            <label>$LOCALIZE[13511]</label>
             <include>Defs_Hidden_Button</include>
-        </control>
-
-        <control type="button" id="9001">
-            <label>$LOCALIZE[31203]</label>
-            <onclick condition="Container.Content(tvshows) + !Skin.HasSetting(ArtworkBeefAll)">RunScript(script.artwork.beef, mode=gui, mediatype=tvshow, dbid=$INFO[ListItem.DBID])</onclick>
-            <onclick condition="Container.Content(movies) + !Skin.HasSetting(ArtworkBeefAll)">RunScript(script.artwork.beef, mode=gui, mediatype=movie, dbid=$INFO[ListItem.DBID])</onclick>
-            <onclick condition="Container.Content(musicvideos) + !Skin.HasSetting(ArtworkBeefAll)">RunScript(script.artwork.beef, mode=gui, mediatype=musicvideo, dbid=$INFO[ListItem.DBID])</onclick>
-            <onclick condition="Container.Content(tvshows) + Skin.HasSetting(ArtworkBeefAll)">RunScript(script.artwork.beef, mode=auto, mediatype=tvshow, dbid=$INFO[ListItem.DBID])</onclick>
-            <onclick condition="Container.Content(movies) + Skin.HasSetting(ArtworkBeefAll)">RunScript(script.artwork.beef, mode=auto, mediatype=movie, dbid=$INFO[ListItem.DBID])</onclick>
-            <onclick condition="Container.Content(musicvideos) + Skin.HasSetting(ArtworkBeefAll)">RunScript(script.artwork.beef, mode=auto, mediatype=musicvideo, dbid=$INFO[ListItem.DBID])</onclick>			
-            <description>Get Artwork</description>
-            <include>Defs_Hidden_Button</include>
-            <visible>[Container.Content(tvshows) | Container.Content(movies) | Container.Content(musicvideos)] + system.hasaddon(script.artwork.beef)</visible>
         </control>
 
         <control type="button" id ="6">

@@ -261,14 +261,14 @@
                 <visible>Integer.IsGreater(Container(9502).NumItems,0)</visible>
             </item>
             <!-- Similar -->
-            <!-- <item>
+             <item>
                 <label>$LOCALIZE[31319]</label>
                 <icon>special://skin/extras/icons/bookmark-star.png</icon>
                 <onclick>SetFocus(9006)</onclick>
                 <onclick>Select</onclick>
                 <visible>Control.IsEnabled(9006)</visible>
                 <visible>Integer.IsGreater(Container(9503).NumItems,0)</visible>
-            </item> -->
+            </item>
             <!-- youtube -->
             <!-- <item>
                 <label>Youtube</label>
@@ -294,14 +294,14 @@
             
             <!-- Art -->
             <item>
-                <label>$INFO[Control.GetLabel(10)]</label>
+                <label>$LOCALIZE[13511]</label>
                 <icon>special://skin/extras/icons/paintbrush.png</icon>
                 <onclick>SendClick(10)</onclick>
                 <visible>Control.IsEnabled(10)</visible>
                 <visible>!Skin.HasSetting(global.kioskmode)</visible>
             </item>
             <!-- Art Downloader -->
-            <item>
+<!--            <item>
                 <label>$INFO[Control.GetLabel(9001)]</label>
                 <icon>special://skin/extras/icons/paintbucket3.png</icon>
                 <onclick>SetFocus(9001)</onclick>
@@ -309,7 +309,7 @@
                 <onclick>SetFocus(300)</onclick>
                 <visible>Control.IsEnabled(9001)</visible>
                 <visible>!Skin.HasSetting(global.kioskmode)</visible>
-            </item>
+            </item> -->
             <!-- Refresh -->
             <item>
                 <label>$INFO[Control.GetLabel(6)]</label>
@@ -372,7 +372,15 @@
 
     <include name="Home_MainMenu_ExtInfoItems">
         <content>
-            <!-- Cast -->
+            <!-- Play -->
+			<item>
+                <label>$INFO[Control.GetLabel(9008)]</label>
+                <icon>special://skin/extras/icons/play3.png</icon>
+                <onclick>PlayMedia($INFO[Container(10051).ListItem.Property(file)])</onclick>
+				<onclick>Dialog.Close(all)</onclick>
+                <visible>Control.IsVisible(9008)</visible>
+            </item>
+			<!-- Cast -->
             <item>
                 <label>$INFO[Control.GetLabel(9002)]</label>
                 <icon>special://skin/extras/icons/artist.png</icon>
@@ -404,20 +412,6 @@
                 <onclick>Select</onclick>
                 <visible>Control.IsEnabled(9005)</visible>
             </item>
-            <!-- Trakt -->
-<!--            <item>
-                <label>$INFO[Control.GetLabel(9009)]</label>
-                <icon>special://skin/extras/icons/addtile.png</icon>
-                <onclick>SendClick(9009)</onclick>
-                <visible>Control.IsEnabled(9009)</visible>
-            </item> -->
-            <!-- Manage -->
-<!--            <item>
-                <label>$INFO[Control.GetLabel(445)]</label>
-                <icon>special://skin/extras/icons/configure.png</icon>
-                <onclick>SendClick(445)</onclick>
-                <visible>Control.IsEnabled(445)</visible>
-            </item> -->
         </content>
     </include>
 
